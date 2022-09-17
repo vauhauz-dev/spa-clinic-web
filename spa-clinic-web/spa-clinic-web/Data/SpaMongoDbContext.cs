@@ -1,27 +1,28 @@
-﻿using System;
+using System;
 using MongoDB.Driver;
 using System.Security.Authentication;
-using spa_clinic_web.Models;
+using spa_clinic_web.models;
+using Microsoft.EntityFrameworkCore;
+using System.Configuration;
 
 namespace spa_clinic_web.Data
 {
     public class SpaMongoDbContext : Microsoft.EntityFrameworkCore.DbContext
     {
-        public SpaMongoDbContext(IConfiguration configuration)
+        public SpaMongoDbContext(DbContextOptions<SpaMongoDbContext> options, IConfiguration configuration)
+            : base(options)
         {
-            // Connect to the Mongo database and obtain reference to Book collection
             MongoClientSettings settings = MongoClientSettings.FromUrl(
-                new MongoUrl(configuration.GetConnectionString("SpaClinicConnectionString"))
-            );
+               new MongoUrl(configuration.GetConnectionString("SpaClinicConnectionString"))
+           );
             settings.SslSettings =
                 new SslSettings() { EnabledSslProtocols = SslProtocols.Tls12 };
             var mongoClient = new MongoClient(settings);
-            var database = mongoClient.GetDatabase("BookstoreDb");
-            Customers = database.GetCollection<Customer>("Customer");
+            var database = mongoClient.GetDatabase("spa-clinic-crm-db");
+            CustomerTest = database.GetCollection<CustomerTest>("customers");
         }
 
-        // Readonly IMongoCollection, our equivalent to DbSet
-        public IMongoCollection<Customer> Customers { get; }
+        public IMongoCollection<CustomerTest> CustomerTest { get; }
     }
 }
 

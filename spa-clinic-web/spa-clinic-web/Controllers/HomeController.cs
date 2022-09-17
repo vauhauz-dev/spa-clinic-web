@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using spa_clinic_web.Models;
-using spa_clinic_web.mongodb;
+//using spa_clinic_web.Models;
+//using spa_clinic_web.mongodb;
 using System.Diagnostics;
 
 namespace spa_clinic_web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly CustomersService _customersService;
+        //private readonly CustomersService _customersService;
 
         private readonly ILogger<HomeController> _logger;
 
@@ -26,19 +26,11 @@ namespace spa_clinic_web.Controllers
             return View();
         }
 
-        [HttpPost(Name = "createcustomer")]
-        public async Task<string> CreateCustomer()
-        {
-            Customer cust = new Customer();
-            cust.FullName = "Pedro Pica Piedra";
-            await _customersService.CreateAsync(cust);
-            return "OK";
-        }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        //public IActionResult Error()
+        //{
+        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        //}
     }
 }

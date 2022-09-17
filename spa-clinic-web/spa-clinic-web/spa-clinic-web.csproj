@@ -20,23 +20,20 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.9" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Cosmos" Version="6.0.9" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\spa-clinic-web.models\spa-clinic-web.models.csproj">
-      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
-    </ProjectReference>
-    <ProjectReference Include="..\spa-clinic-web.mongodb\spa-clinic-web.mongodb.csproj">
-      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup>
     <None Remove="Data\" />
     <None Remove="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
     <None Remove="Swashbuckle.AspNetCore" />
     <None Remove="Microsoft.EntityFrameworkCore.Sqlite" />
+    <None Remove="models\" />
+    <None Remove="IFramework.EntityFrameworkCore.Blueshift.MongoDB" />
+    <None Remove="Microsoft.EntityFrameworkCore.Cosmos" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
+    <Folder Include="models\" />
   </ItemGroup>
 </Project>

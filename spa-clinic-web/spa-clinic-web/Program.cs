@@ -1,19 +1,21 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using spa_clinic_web.Data;
-using spa_clinic_web.Models;
-using spa_clinic_web.Models.Settings;
-using spa_clinic_web.mongodb;
+//using spa_clinic_web.Models;
+//using spa_clinic_web.Models.Settings;
+//using spa_clinic_web.mongodb;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.Configure<SpaClinicDbSettings>(
-    builder.Configuration.GetSection("SpaClinicDatabase"));
+//builder.Services.Configure<SpaClinicDbSettings>(
+//    builder.Configuration.GetSection("SpaClinicDatabase"));
 
-builder.Services.AddSingleton<CustomersService>();
+//builder.Services.AddSingleton<CustomersService>();
 
-builder.Services.AddScoped<SpaMongoDbContext>();
+var connectionString = builder.Configuration.GetConnectionString("SpaClinicConnectionString");
+builder.Services.AddDbContext<SpaMongoDbContext>(options =>
+    options.UseCosmos(connectionString, "spa-clinic-crm-db"));
 
 
 builder.Services.AddControllersWithViews();

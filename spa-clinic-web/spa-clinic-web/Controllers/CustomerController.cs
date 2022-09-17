@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using spa_clinic_web.Models;
-using spa_clinic_web.mongodb;
+//using spa_clinic_web.Models;
+//using spa_clinic_web.mongodb;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,10 +13,10 @@ namespace spa_clinic_web.Controllers
     [Route("api/[controller]")]
     public class CustomerController : Controller
     {
-        private readonly CustomersService _customersService;
+        //private readonly CustomersService _customersService;
 
-        public CustomerController(CustomersService customersService) =>
-        _customersService = customersService;
+        //public CustomerController(CustomersService customersService) =>
+        //_customersService = customersService;
 
         // GET: api/values
         [HttpGet]
@@ -33,14 +33,14 @@ namespace spa_clinic_web.Controllers
         }
 
         // POST api/values
-        [HttpPost]
-        public async Task<string> Post()
-        {
-            Customer cust = new Customer();
-            cust.FullName = "Pedro Pica Piedra";
-            await _customersService.CreateAsync(cust);
-            return "OK";
-        }
+        //[HttpPost]
+        //public async Task<string> Post()
+        //{
+        //    Customer cust = new Customer();
+        //    cust.FullName = "Pedro Pica Piedra";
+        //    await _customersService.CreateAsync(cust);
+        //    return "OK";
+        //}
 
         // PUT api/values/5
         [HttpPut("{id}")]

@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using spa_clinic_web.Data;
 using spa_clinic_web.Models;
 using spa_clinic_web.Models.Settings;
 using spa_clinic_web.mongodb;
@@ -11,6 +12,8 @@ builder.Services.Configure<SpaClinicDbSettings>(
     builder.Configuration.GetSection("SpaClinicDatabase"));
 
 builder.Services.AddSingleton<CustomersService>();
+
+builder.Services.AddScoped<SpaMongoDbContext>();
 
 
 builder.Services.AddControllersWithViews();

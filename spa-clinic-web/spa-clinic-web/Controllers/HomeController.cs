@@ -26,8 +26,8 @@ namespace spa_clinic_web.Controllers
             return View();
         }
 
-        [HttpGet]
-        public async Task<string> Get()
+        [HttpPost(Name = "createcustomer")]
+        public async Task<string> CreateCustomer()
         {
             Customer cust = new Customer();
             cust.FullName = "Pedro Pica Piedra";

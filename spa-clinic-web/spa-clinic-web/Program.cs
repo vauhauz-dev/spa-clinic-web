@@ -11,8 +11,6 @@ builder.Services.Configure<SpaClinicDbSettings>(
 
 builder.Services.AddSingleton<Customer>();
 
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();

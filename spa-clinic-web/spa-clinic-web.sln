@@ -5,6 +5,14 @@ VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "spa-clinic-web", "spa-clinic-web\spa-clinic-web.csproj", "{C55DBA5C-1A09-435C-A08D-447632DFE797}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "spa-clinic-web.services", "spa-clinic-web.services\spa-clinic-web.services.csproj", "{67110CB0-00BC-4F4B-9BF1-33523BB3BFBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "spa-clinic-web.models", "spa-clinic-web.models\spa-clinic-web.models.csproj", "{691376F3-49F3-42F3-9CD4-E05D833010B7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infraestructure", "infraestructure", "{014EAE25-835C-48CF-B50F-9A3550983E85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "spa-clinic-web.mongodb", "spa-clinic-web.mongodb\spa-clinic-web.mongodb.csproj", "{6B6E6A44-A41E-4857-96F6-182629442F56}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,11 +23,26 @@ Global
 		{C55DBA5C-1A09-435C-A08D-447632DFE797}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C55DBA5C-1A09-435C-A08D-447632DFE797}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C55DBA5C-1A09-435C-A08D-447632DFE797}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67110CB0-00BC-4F4B-9BF1-33523BB3BFBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67110CB0-00BC-4F4B-9BF1-33523BB3BFBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67110CB0-00BC-4F4B-9BF1-33523BB3BFBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67110CB0-00BC-4F4B-9BF1-33523BB3BFBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{691376F3-49F3-42F3-9CD4-E05D833010B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{691376F3-49F3-42F3-9CD4-E05D833010B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{691376F3-49F3-42F3-9CD4-E05D833010B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{691376F3-49F3-42F3-9CD4-E05D833010B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B6E6A44-A41E-4857-96F6-182629442F56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B6E6A44-A41E-4857-96F6-182629442F56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B6E6A44-A41E-4857-96F6-182629442F56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B6E6A44-A41E-4857-96F6-182629442F56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {22A50344-3592-4CBA-8B77-29A5EF147150}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6B6E6A44-A41E-4857-96F6-182629442F56} = {014EAE25-835C-48CF-B50F-9A3550983E85}
 	EndGlobalSection
 EndGlobal

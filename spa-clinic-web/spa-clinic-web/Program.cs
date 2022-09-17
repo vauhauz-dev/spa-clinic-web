@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using spa_clinic_web.Models;
 using spa_clinic_web.Models.Settings;
+using spa_clinic_web.mongodb;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.Configure<SpaClinicDbSettings>(
     builder.Configuration.GetSection("SpaClinicDatabase"));
 
-builder.Services.AddSingleton<Customer>();
+builder.Services.AddSingleton<CustomersService>();
 
 
 builder.Services.AddControllersWithViews();

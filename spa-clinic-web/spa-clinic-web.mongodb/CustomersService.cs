@@ -27,7 +27,7 @@ namespace spa_clinic_web.mongodb
         public async Task<List<Customer>> GetAsync() =>
         await _customerCollection.Find(_ => true).ToListAsync();
 
-        public async Task<Customer?> GetAsync(Guid id) =>
+        public async Task<Customer?> GetAsync(string id) =>
             await _customerCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
 
         public async Task CreateAsync(Customer newBook) =>

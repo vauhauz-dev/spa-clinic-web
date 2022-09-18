@@ -20,9 +20,11 @@ namespace spa_clinic_web.Data
             var mongoClient = new MongoClient(settings);
             var database = mongoClient.GetDatabase("spa-clinic-crm-db");
             CustomerTest = database.GetCollection<CustomerTest>("customers");
+            User = database.GetCollection<User>("user");
         }
 
         public IMongoCollection<CustomerTest> CustomerTest { get; }
+        public IMongoCollection<User> User { get; }
     }
 }
 

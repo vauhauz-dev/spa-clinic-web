@@ -18,10 +18,6 @@ namespace spa_clinic_web.models
 
         [BsonElement("createdAt")]
         public DateTime CreatedAt { get; set; }
-
-        public CustomerTest()
-        {
-        }
     }
 }
 

@@ -4,6 +4,7 @@
     {
         public string message { get; set; }
         public int code { get; set; }   
-        public bool success { get; set; } 
+        public bool success { get; set; }
+        public string? userRol { get; internal set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.UI.V4.Pages.Account.Internal;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.Cosmos.Linq;
 using Microsoft.EntityFrameworkCore;
 using MongoDB.Driver;
 using spa_clinic_web.Data;
@@ -25,20 +26,21 @@ namespace spa_clinic_web.Controllers
             var user = (await _context.User
                 .Find(_ => _.UserName.Equals(loginRequest.UserName) 
                     && _.Password.Equals(loginRequest.Password))
-                .ToListAsync());
+                .ToListAsync()).FirstOrDefault();
             var loginResponse = new LoginResponse();
-            if (user.FirstOrDefault() != null)
-            {
-                loginResponse.code = 200;
-                loginResponse.success = true;
-                loginResponse.message = "Login Success";
-            }
-            else
+            if (user == null)
             {
                 loginResponse.code = 400;
                 loginResponse.success = false;
                 loginResponse.message = "Login Fail";
             }
+            else
+            {
+                loginResponse.code = 200;
+                loginResponse.success = true;
+                loginResponse.message = "Login Success";
+                loginResponse.userRol = user.userRol;
+            }    
             return loginResponse;
         }
     }

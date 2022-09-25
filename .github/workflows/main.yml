@@ -38,4 +38,3 @@ jobs:
           push: true
           tags: |
             ghcr.io/username/package:latest
-            ghcr.io/username/package:${{ github.sha }}

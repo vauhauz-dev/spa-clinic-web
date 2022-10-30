@@ -20,7 +20,7 @@ export default function Login () {
                 </div>
                 <div className="form-container sign-in-container">
                     <form action="#">
-                        <h1>Sign in</h1>
+                        <h1 className="signin-title">Sign in</h1>
                         <div className="social-container">
                             <a href="#" className="social"><i className="fab fa-facebook-f"></i></a>
                             <a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>

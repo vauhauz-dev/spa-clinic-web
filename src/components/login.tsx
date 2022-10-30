@@ -2,7 +2,7 @@
 export default function Login () {
     return (
         <>
-        <h2>Iskali Natural Spa</h2>
+        <h1>Iskali Natural Spa</h1>
             <div className="container" id="container">
                 <div className="form-container sign-up-container">
                     <form action="#">

@@ -13,14 +13,6 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Iskali
-        </h1>
-
-        <p className={styles.description}>
-          Natural SPA
-        </p>
-
         <Login></Login>
       </main>
 

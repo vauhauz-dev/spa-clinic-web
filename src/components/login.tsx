@@ -2,7 +2,6 @@
 export default function Login () {
     return (
         <>
-            <h2>Weekly Coding Challenge #1: Sign in/up Form</h2>
             <div className="container" id="container">
                 <div className="form-container sign-up-container">
                     <form action="#">

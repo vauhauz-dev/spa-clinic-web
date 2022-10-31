@@ -32,7 +32,7 @@ export default function Login() {
           <Grid2 xs={8}>
 
           </Grid2>
-          <Grid2 xs={4}>
+          <Grid2 className="login-section" xs={4}>
             <Container>
             <Box
               sx={{

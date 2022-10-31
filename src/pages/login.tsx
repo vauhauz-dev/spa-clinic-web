@@ -26,7 +26,7 @@ export default function Login() {
 
   return (
         <div>
-          <Grid2 container spacing={2}>
+          <Grid2 container spacing={2} sx={{height: "100vh", margin: "0"}}>
             <Grid2 xs={8}>
 
             </Grid2>

@@ -11,7 +11,7 @@ export default function Layout({ children }: { children: ReactNode }) {
             <link rel="icon" href="/favicon.ico" />
             <meta name="viewport" content="initial-scale=1, width=device-width" />
         </Head>
-        <main className={styles.main}>{children}</main>
+        {children}
         <footer className={styles.footer}>
             <a
             href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"

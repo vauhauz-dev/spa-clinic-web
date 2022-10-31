@@ -41,7 +41,7 @@ export default function Login() {
                 }}
               >
                 <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-                  <LockOutlinedIcon />
+                  <div className='iskali-logo'></div>
                 </Avatar>
                 <Typography component="h1" variant="h5">
                   Iniciar Sesion

@@ -21,7 +21,7 @@ export const config = {
        * - static (static files)
        * - favicon.ico (favicon file)
        */
-      '/((?!api|static|favicon.ico|vercel.svg).*)'
+      '/((?!api|static|favicon.ico|vercel.svg|login).*)'
     ],
   }
   

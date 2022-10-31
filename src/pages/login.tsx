@@ -30,7 +30,7 @@ export default function Login() {
             <Grid2 xs={8} sx={{padding: "0"}}>
               <div className='login-image'></div>
             </Grid2>
-            <Grid2 xs={4} sx={{backgroundColor: "#6bc5e8"}}>
+            <Grid2 xs={4} sx={{backgroundColor: "#dbdbdb"}}>
               <Container>
               <Box
                 sx={{

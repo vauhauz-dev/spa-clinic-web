@@ -5,7 +5,7 @@ import type { NextRequest } from 'next/server'
 export function middleware(request: NextRequest) {
     const cookie = request.cookies.get('bearer')
 
-    if (!cookie && !request.nextUrl.pathname.startsWith('/login')) {
+    if (!cookie && !request.nextUrl.pathname.includes('login')) {
         return NextResponse.redirect(new URL('/login', request.url))
     } else {
         const response = NextResponse.next()

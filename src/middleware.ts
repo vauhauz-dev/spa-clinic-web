@@ -9,6 +9,7 @@ export function middleware(request: NextRequest) {
         return NextResponse.redirect(new URL('/login', request.url))
     } else {
         const response = NextResponse.next()
+        return response;
     }
 }
 

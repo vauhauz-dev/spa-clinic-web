@@ -33,6 +33,7 @@ export default function Login() {
 
           </Grid2>
           <Grid2 xs={4}>
+            <Container>
             <Box
               sx={{
                 marginTop: 8,
@@ -95,6 +96,7 @@ export default function Login() {
               </Box>
             </Box>
             <Copyright sx={{ mt: 8, mb: 4 }} />
+            </Container>
           </Grid2>
         </Grid2>
   );

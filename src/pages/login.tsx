@@ -25,12 +25,12 @@ export default function Login() {
   };
 
   return (
-        <div className='login-section'>
+        <div>
           <Grid2 container spacing={2}>
             <Grid2 xs={8}>
 
             </Grid2>
-            <Grid2 xs={4} sx={{backgroundColor: "cadetblue"}}>
+            <Grid2 xs={4} sx={{backgroundColor: "#6bc5e8"}}>
               <Container>
               <Box
                 sx={{

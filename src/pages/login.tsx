@@ -32,8 +32,8 @@ export default function Login() {
           <Grid2 xs={8}>
 
           </Grid2>
-          <Grid2 color={"aliceblue"} xs={4}>
-            <Container>
+          <Grid2 xs={4}>
+            <Container className='login-section'>
             <Box
               sx={{
                 marginTop: 8,

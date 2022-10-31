@@ -20,8 +20,7 @@ export const config = {
        * - static (static files)
        * - favicon.ico (favicon file)
        */
-      '/((?!api|static|favicon.ico|login).*)',
-      '/(.*(?!.svg|.png))'
+      '/((?!api|static|favicon.ico|vercel.svg|login).*)'
     ],
   }
   

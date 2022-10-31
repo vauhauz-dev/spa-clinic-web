@@ -25,12 +25,13 @@ export default function Login() {
   };
 
   return (
-        <Grid2 container spacing={2}>
+        <div className='login-section'>
+          <Grid2 container spacing={2}>
           <Grid2 xs={8}>
 
           </Grid2>
           <Grid2 xs={4}>
-            <Container className='login-section'>
+            <Container>
             <Box
               sx={{
                 marginTop: 8,
@@ -96,5 +97,6 @@ export default function Login() {
             </Container>
           </Grid2>
         </Grid2>
+        </div>
   );
 }

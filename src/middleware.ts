@@ -5,9 +5,22 @@ import type { NextRequest } from 'next/server'
 export function middleware(request: NextRequest) {
     const cookie = request.cookies.get('bearer')
 
-    if (!cookie && !request.nextUrl.pathname.startsWith('/login') && !request.nextUrl.pathname.endsWith('.png') && !request.nextUrl.pathname.endsWith('.svg')) {
+    if (!cookie) {
         return NextResponse.redirect(new URL('/login', request.url))
     } else {
         const response = NextResponse.next()
     }
 }
+
+export const config = {
+    matcher: [
+      /*
+       * Match all request paths except for the ones starting with:
+       * - api (API routes)
+       * - static (static files)
+       * - favicon.ico (favicon file)
+       */
+      '/((?!api|static|favicon.ico|.svg|.png|login).*)',
+    ],
+  }
+  

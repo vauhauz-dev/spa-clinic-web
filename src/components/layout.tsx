@@ -12,7 +12,5 @@ export default function Layout({ children }: { children: ReactNode }) {
             <meta name="viewport" content="initial-scale=1, width=device-width" />
         </Head>
         {children}
-        <footer className={styles.footer}>
-        </footer>
     </div>)
 }

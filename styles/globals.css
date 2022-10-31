@@ -30,3 +30,11 @@ a {
 .login-section {
   background-color: aliceblue;
 }
+
+.login-image {
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/spa-clinic-709c5.appspot.com/o/toallas-image.jpg?alt=media&token=c793adb6-5ed7-4c83-aa5e-38da353ec620');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+}

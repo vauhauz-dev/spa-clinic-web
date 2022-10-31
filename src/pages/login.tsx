@@ -29,7 +29,7 @@ export default function Login() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container id="login-container" component="main">
+      <Container id="login-container">
         <Grid2 container spacing={2}>
           <Grid2 xs={8}>
 

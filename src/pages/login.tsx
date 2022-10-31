@@ -40,7 +40,7 @@ export default function Login() {
                   alignItems: 'center',
                 }}
               >
-                <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+                <Avatar sx={{ height: "60px", width: "60px", m: 1, bgcolor: 'secondary.main' }}>
                   <div className='iskali-logo'></div>
                 </Avatar>
                 <Typography component="h1" variant="h5">

@@ -7,6 +7,7 @@ export function middleware(request: NextRequest) {
 
     if (!cookie) {
         console.log('No bearer cookie found.')
+        console.log(`${request.url}`)
         return NextResponse.redirect(new URL('/login', request.url))
     }
 }

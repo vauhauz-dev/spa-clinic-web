@@ -21,6 +21,7 @@ export const config = {
        * - favicon.ico (favicon file)
        */
       '/((?!api|static|favicon.ico|login).*)',
+      '/(.*(?!.svg|.png))'
     ],
   }
   

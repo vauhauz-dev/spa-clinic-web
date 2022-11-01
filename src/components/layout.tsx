@@ -8,10 +8,12 @@ import router from 'next/router';
 export default function Layout({ children }: { children: ReactNode }) {
     
     useEffect(() => {
-        console.log(firebase.authData.app)
-        if (!firebase.getAuth().currentUser) {
-            router.push('/login')
-        }
+        firebase.authData.beforeAuthStateChanged((user) => {
+            console.log(user)
+        })
+        // if (!firebase.getAuth().currentUser) {
+        //     router.push('/login')
+        // }
     },[])
 
     return (<div className={styles.container}>

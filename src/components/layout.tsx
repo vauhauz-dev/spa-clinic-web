@@ -3,9 +3,10 @@ import { ReactNode, useEffect, useState } from "react";
 import styles from '@/styles/Home.module.css'
 import Image from 'next/image'
 import firebase from '../lib/firebase';
-import router from 'next/router';
+import {useRouter} from 'next/router';
 
 export default function Layout({ children }: { children: ReactNode }) {
+    const router = useRouter()
     const [showContent, setShowContent] = useState(false);
     
     useEffect(() => {
@@ -22,6 +23,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                 router.push('/')
             }
 
+            console.log(`${router.isReady} - ${router.isPreview}`)
             setShowContent(true);
         })
         return () => unsubscribe();

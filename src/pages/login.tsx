@@ -31,7 +31,7 @@ export default function Login() {
     .then(res => {
       console.log('Success login.')
     }).catch(err => {
-      console.log('Login error: ', err)
+      console.log('Login error: ', err.code)
     })
   };
 

@@ -1,11 +1,12 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import firebase from './lib/firebase';
 
 // This function can be marked `async` if using `await` inside
 export function middleware(request: NextRequest) {
     const cookie = request.cookies.get('bearer')
 
-    if (!cookie) {
+    if (!firebase.getAuth().currentUser) {
         console.log('No bearer cookie found.')
         console.log(`${request.url}`)
         return NextResponse.redirect(new URL('/login', request.url))

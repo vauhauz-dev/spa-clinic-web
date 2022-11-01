@@ -1,9 +1,18 @@
 import Head from "next/head";
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import styles from '@/styles/Home.module.css'
 import Image from 'next/image'
+import firebase from '../lib/firebase';
+import router from 'next/router';
 
 export default function Layout({ children }: { children: ReactNode }) {
+    
+    useEffect(() => {
+        if (!firebase.getAuth().currentUser) {
+            router.push('/login')
+        }
+    },[])
+
     return (<div className={styles.container}>
         <Head>
             <title>Create Next App</title>

@@ -13,12 +13,10 @@ export default function Layout({ children }: { children: ReactNode }) {
             console.log(router.route)
             if (!authState && !router.route.includes('login')) {
                 router.push('/login')
-                return;
             }
 
             if (authState && router.route.includes('login')) {
                 router.push('/')
-                return;
             }
 
             setShowContent(true);

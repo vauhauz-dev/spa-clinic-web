@@ -1,22 +1,27 @@
 import Head from "next/head";
-import { ReactNode, useEffect } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import styles from '@/styles/Home.module.css'
 import Image from 'next/image'
 import firebase from '../lib/firebase';
 import router from 'next/router';
 
 export default function Layout({ children }: { children: ReactNode }) {
+    const [showContent, setShowContent] = useState(false);
     
     useEffect(() => {
         const unsubscribe = firebase.authData.onAuthStateChanged(async (authState) => {
             console.log(router.route)
             if (!authState && !router.route.includes('login')) {
                 router.push('/login')
+                return;
             }
 
             if (authState && router.route.includes('login')) {
                 router.push('/')
+                return;
             }
+
+            setShowContent(true);
         })
         return () => unsubscribe();
     },[])
@@ -28,6 +33,6 @@ export default function Layout({ children }: { children: ReactNode }) {
             <link rel="icon" href="/favicon.ico" />
             <meta name="viewport" content="initial-scale=1, width=device-width" />
         </Head>
-        {children}
+        {showContent ? children : <></>}
     </div>)
 }

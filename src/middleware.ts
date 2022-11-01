@@ -7,8 +7,7 @@ export function middleware(request: NextRequest) {
     const cookie = request.cookies.get('bearer')
 
     if (!firebase.getAuth().currentUser) {
-        console.log('No bearer cookie found.')
-        console.log(`${request.url}`)
+        console.log('No bearer cookie found.', firebase.getAuth().currentUser)
         return NextResponse.redirect(new URL('/login', request.url))
     }
 }

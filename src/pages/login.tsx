@@ -22,7 +22,10 @@ export default function Login() {
     let email: string | undefined = data.get('email')?.toString();
     let password: string | undefined = data.get('password')?.toString();
     console.log('current user: ', firebase.authData.currentUser)
-    if (!email || !password) return;
+    if (!email || !password) {
+      firebase.authData.signOut();
+      return;
+    }
 
     firebase.signInWithEmailAndPassword(firebase.getAuth(), email, password)
     .then(res => {

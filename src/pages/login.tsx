@@ -16,7 +16,7 @@ import firebase from '../lib/firebase';
 
 
 export default function Login() {
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     let email: string | undefined = data.get('email')?.toString();
@@ -27,8 +27,12 @@ export default function Login() {
     });
     if (!email || !password) return;
 
-    let signinResponse = await firebase.signInWithEmailAndPassword(firebase.getAuth(), email, password);
-    console.log(signinResponse.user)
+    firebase.signInWithEmailAndPassword(firebase.getAuth(), email, password)
+    .then(res => {
+      console.log('Success login.')
+    }).catch(err => {
+      console.log('Login error: ', err)
+    })
   };
 
   return (

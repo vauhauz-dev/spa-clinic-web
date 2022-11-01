@@ -12,16 +12,23 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Copyright from '../components/common/copy-right';
 import Grid2 from '@mui/material/Unstable_Grid2'; // Grid version 2
+import firebase from '../lib/firebase';
 
 
 export default function Login() {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    let email: string | undefined = data.get('email')?.toString();
+    let password: string | undefined = data.get('password')?.toString();
     console.log({
-      email: data.get('email'),
-      password: data.get('password'),
+      email: email,
+      password: password,
     });
+    if (!email || !password) return;
+
+    let signinResponse = await firebase.signInWithEmailAndPassword(firebase.getAuth(), email, password);
+    console.log(signinResponse.user)
   };
 
   return (

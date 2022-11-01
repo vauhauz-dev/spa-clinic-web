@@ -15,15 +15,14 @@ export default function Layout({ children }: { children: ReactNode }) {
             console.log(router.route)
             if (!authState && !router.route.includes('login')) {
                 requireRedirect = true;
-                router.push('/login')
+                await router.push('/login')
             }
 
             if (authState && router.route.includes('login')) {
                 requireRedirect = true;
-                router.push('/')
+                await router.push('/')
             }
 
-            console.log(`${router.isReady} - ${router.isPreview}`)
             setShowContent(true);
         })
         return () => unsubscribe();

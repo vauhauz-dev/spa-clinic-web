@@ -25,6 +25,7 @@ export default function Login() {
       email: email,
       password: password,
     });
+    console.log('current user: ', firebase.getAuth().currentUser)
     if (!email || !password) return;
 
     firebase.signInWithEmailAndPassword(firebase.getAuth(), email, password)

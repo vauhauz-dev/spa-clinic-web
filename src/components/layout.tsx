@@ -3,23 +3,19 @@ import { ReactNode, useEffect, useState } from "react";
 import styles from '@/styles/Home.module.css'
 import Image from 'next/image'
 import firebase from '../lib/firebase';
-import {useRouter} from 'next/router';
+import router from 'next/router';
 
 export default function Layout({ children }: { children: ReactNode }) {
-    const router = useRouter()
     const [showContent, setShowContent] = useState(false);
     
     useEffect(() => {
         const unsubscribe = firebase.authData.onAuthStateChanged(async (authState) => {
-            let requireRedirect = false;
             console.log(router)
             if (!authState && !router.route.includes('login')) {
-                requireRedirect = true;
                 await router.push('/login')
             }
 
             if (authState && router.route.includes('login')) {
-                requireRedirect = true;
                 await router.push('/')
             }
 

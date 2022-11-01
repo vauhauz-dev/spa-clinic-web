@@ -8,12 +8,13 @@ import router from 'next/router';
 export default function Layout({ children }: { children: ReactNode }) {
     
     useEffect(() => {
-        firebase.authData.beforeAuthStateChanged((user) => {
-            console.log(user)
+        const unsubscribe = firebase.authData.onAuthStateChanged(async (authState) => {
+            console.log(authState)
         })
         // if (!firebase.getAuth().currentUser) {
         //     router.push('/login')
         // }
+        return () => unsubscribe();
     },[])
 
     return (<div className={styles.container}>

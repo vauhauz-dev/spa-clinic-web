@@ -15,4 +15,4 @@ if (!firebase.getApps().length) {
     authData = auth.getAuth(firebase.getApp());
 }
 
-export default { ...firebase, ...auth }
+export default { ...firebase, ...auth, authData: authData }

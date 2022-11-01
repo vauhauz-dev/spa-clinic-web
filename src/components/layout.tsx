@@ -8,7 +8,7 @@ import router from 'next/router';
 export default function Layout({ children }: { children: ReactNode }) {
     
     useEffect(() => {
-        console.log(firebase.getAuth().currentUser)
+        console.log(firebase.authData.currentUser)
         if (!firebase.getAuth().currentUser) {
             router.push('/login')
         }

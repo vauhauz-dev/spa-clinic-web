@@ -21,7 +21,7 @@ export default function Login() {
     const data = new FormData(event.currentTarget);
     let email: string | undefined = data.get('email')?.toString();
     let password: string | undefined = data.get('password')?.toString();
-    console.log('current user: ', firebase.getAuth().currentUser)
+    console.log('current user: ', firebase.authData.currentUser)
     if (!email || !password) return;
 
     firebase.signInWithEmailAndPassword(firebase.getAuth(), email, password)

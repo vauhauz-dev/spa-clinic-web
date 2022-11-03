@@ -40,3 +40,4 @@ jspm_packages
 .DS_*
 **/*.backup.*
 **/*.back.*
+package-lock.json

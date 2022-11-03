@@ -6,6 +6,7 @@ import Login from 'src/pages/login'
 export default function Home() {
   return (
     <div className={styles.container}>
+      
     </div>
   )
 }

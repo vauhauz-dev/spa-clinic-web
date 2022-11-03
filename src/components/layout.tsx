@@ -10,13 +10,13 @@ export default function Layout({ children }: { children: ReactNode }) {
     
     useEffect(() => {
         const unsubscribe = firebase.authData.onAuthStateChanged(async (authState) => {
-            if (!authState && !router.route.includes('login')) {
-                await router.push('/login')
-            }
+            // if (!authState && !router.route.includes('login')) {
+            //     await router.push('/login')
+            // }
 
-            if (authState && router.route.includes('login')) {
-                await router.push('/')
-            }
+            // if (authState && router.route.includes('login')) {
+            //     await router.push('/')
+            // }
 
             setShowContent(true);
         })

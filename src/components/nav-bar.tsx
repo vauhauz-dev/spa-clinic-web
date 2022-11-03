@@ -2,7 +2,7 @@ import { AppBar, Avatar, IconButton, Toolbar, Typography } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 
 export default function NavBar() {
-    const logoImageUrl: string = "https://firebasestorage.googleapis.com/v0/b/spa-clinic-709c5.appspot.com/o/toallas-image.jpg?alt=media&token=c793adb6-5ed7-4c83-aa5e-38da353ec620";
+    const logoImageUrl: string = "https://firebasestorage.googleapis.com/v0/b/spa-clinic-709c5.appspot.com/o/iskali-logo.jpg?alt=media&token=67b6f5de-e954-4f19-b188-abd2d670e858";
     
     return <div>
         <AppBar position="static" sx={{backgroundColor: "white", color: "#649ecc"}}>

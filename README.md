@@ -32,7 +32,7 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
             - si das click en un cliente 
                 - se incluye el nombre, ciudad, estatus de adeudo, monto de adeudo, fecha del ultimo pago, telefono del cliente, correo del cliente
                 - se despliega una modal con el historial de sesiones de tratamientos ordenados de mas actual incluyendo los tratamientos futuros, cada tratamiento tendra su titulo, fecha de aplicacion, tratamiento completo en caso de tenerlo, link de la cita original, estatus de aplicacion del tratamiento completo y estatus de pago del tratamiento completo
-                - boton para mandar recordatorio por correo al cliente
+                - boton para mandar recordatorio por correo al cliente(opcional)
                 - opcion para generar ticket
                     - en este caso el empleado del spa va a poder seleccionar entre las sesiones que aun no estan pagadas para poder generar el ticket, aqui se podra registrar un pago
                 - listado de pagos, cada pago debe tener un ticket

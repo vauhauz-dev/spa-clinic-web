@@ -10,7 +10,7 @@ export default function NavBar() {
                 <IconButton sx={{ p: 0 }}>
                     <Avatar alt="Remy Sharp" src={logoImageUrl} />
                 </IconButton>
-                <Typography variant="h6" color="inherit" component="div">
+                <Typography variant="h6" color="inherit" component="div" marginLeft="15px">
                     Photos
                 </Typography>
             </Toolbar>

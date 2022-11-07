@@ -57,3 +57,11 @@ a {
 .custom-badge > span {
   height: 15px;
 }
+
+.nav-bar-container {
+  color: #649ecc !important;
+}
+
+.nav-bar-container > button, .nav-bar-container > span > button {
+  color: #649ecc !important;
+}

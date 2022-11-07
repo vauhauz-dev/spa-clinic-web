@@ -38,7 +38,7 @@ function createData(
     '&:hover': {
       backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
-    right: '5px',
+    right: '10px',
     width: '100%',
     [theme.breakpoints.up('sm')]: {
       width: 'auto',
@@ -54,9 +54,9 @@ function createData(
       transition: theme.transitions.create('width'),
       width: '100%',
       [theme.breakpoints.up('sm')]: {
-        width: '25ch',
+        width: '20ch',
         '&:focus': {
-          width: '35ch',
+          width: '30ch',
         },
       },
     },
@@ -64,7 +64,7 @@ function createData(
 
 export default function Customers() {
     return <Box sx={{padding: '15px', backgroundColor: '#e9e9e9', marginTop: '10px'}}>
-        <Paper sx={{marginBottom: '10px', padding: '10px', backgroundColor: '#1976d2'}}>
+        <Paper sx={{marginBottom: '10px', padding: '5px', backgroundColor: '#1976d2'}}>
             <Toolbar>
                 <Typography variant="h4" sx={{color: 'white'}}>
                     Clientes

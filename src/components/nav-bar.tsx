@@ -12,9 +12,9 @@ export default function NavBar() {
                     <Avatar alt="Remy Sharp" src={logoImageUrl} />
                 </IconButton>
                 <Typography variant="h6" color="inherit" component="div" marginLeft="15px">
-                    Photos
+                    Iskali Natural Spa
                 </Typography>
-                <Container maxWidth="sm" sx={{paddingTop: '8px', paddingBottom: '3px'}}>
+                <Container maxWidth="sm" sx={{paddingTop: '8px', paddingBottom: '3px'}} className="nav-bar-container">
                     <Button onClick={() => router.push('/')} variant="text" sx={{margin: '0 0 0 20px'}}>Clientes</Button>
                     <Button onClick={() => router.push('/appointments')} variant="text" sx={{margin: '0 0 0 20px'}}>Citas</Button>
                     <Button onClick={() => router.push('/treatments')} variant="text" sx={{margin: '0 0 0 20px'}}>Tratamientos</Button>

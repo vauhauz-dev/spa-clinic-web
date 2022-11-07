@@ -64,7 +64,7 @@ function createData(
 
 export default function Customers() {
     return <Box sx={{padding: '15px', backgroundColor: '#e9e9e9', marginTop: '10px'}}>
-        <Paper sx={{marginBottom: '10px', padding: '5px', backgroundColor: '#1976d2'}}>
+        <Paper sx={{marginBottom: '10px', padding: '5px', backgroundColor: '#649ecc'}}>
             <Toolbar>
                 <Typography variant="h4" sx={{color: 'white'}}>
                     Clientes

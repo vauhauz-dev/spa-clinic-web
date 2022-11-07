@@ -24,7 +24,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         return () => unsubscribe();
     },[])
 
-    return (<div className={styles.container}>
+    return <>
         {showContent ? children : <></>}
-    </div>)
+    </>
 }

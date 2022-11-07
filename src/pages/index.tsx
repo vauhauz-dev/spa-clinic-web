@@ -9,9 +9,7 @@ import Customers from '@/components/clientes/customers'
 
 const Home: NextPageWithLayout = () => {
   return (
-    <div >
       <Customers></Customers>
-    </div>
   )
 }
 

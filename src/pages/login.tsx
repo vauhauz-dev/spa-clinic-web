@@ -56,7 +56,7 @@ export default function Login() {
                   <div className='iskali-logo'></div>
                 </Avatar>
                 <Typography component="h1" variant="h5">
-                  Iniciar Sesion
+                  Iniciar Sesión
                 </Typography>
                 <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                   <TextField

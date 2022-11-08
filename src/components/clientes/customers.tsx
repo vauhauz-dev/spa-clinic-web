@@ -13,11 +13,11 @@ function createData(
   }
   
   const rows = [
-    createData('Frozen yoghurt', 'Culiacan', 'COMPLETO', '01/01/2022'),
-    createData('Ice cream sandwich', 'Tijuana', 'COMPLETO', '01/01/2022'),
-    createData('Eclair', 'Culiacan', 'PENDIENTE', '01/01/2022'),
-    createData('Cupcake', 'Tijuana', 'COMPLETO', '01/01/2022'),
-    createData('Gingerbread', 'Culiacan', 'PENDIENTE', '01/01/2022'),
+    createData('Alejandro Martínez Meza', 'Culiacán', 'COMPLETO', '01/01/2022'),
+    createData('Emmanuel Corral Contreras', 'Tijuana', 'COMPLETO', '01/01/2022'),
+    createData('Dalila Figueroa Ruvalcaba', 'Culiacán', 'PENDIENTE', '01/01/2022'),
+    createData('Jonathan Amaya Bojorquez', 'Tijuana', 'COMPLETO', '01/01/2022'),
+    createData('America Gutierrez López', 'Culiacán', 'PENDIENTE', '01/01/2022'),
   ];
 
   const SearchIconWrapper = styled('div')(({ theme }) => ({
@@ -61,7 +61,7 @@ function createData(
   }));
 
 export default function Customers() {
-    return <Box sx={{padding: '15px', backgroundColor: '#e9e9e9', marginTop: '10px'}}>
+    return <Box sx={{padding: '25px', backgroundColor: '#e9e9e9', marginTop: '10px'}}>
         <Paper sx={{marginBottom: '10px', padding: '10px', backgroundColor: '#649ecc'}}>
             <Grid container spacing={1}>
               <Grid xs={12} sm={4} xl={4}>
@@ -75,7 +75,7 @@ export default function Customers() {
                           <SearchIcon />
                       </SearchIconWrapper>
                       <StyledInputBase
-                      placeholder="Search…"
+                      placeholder="Buscar Cliente…"
                       inputProps={{ 'aria-label': 'search' }}
                       />
                   </Search>
@@ -86,10 +86,10 @@ export default function Customers() {
       <Table sx={{ minWidth: 500 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Nombre</TableCell>
+            <TableCell align="center">Nombre</TableCell>
             <TableCell align="center">Ciudad</TableCell>
             <TableCell align="center">Estatus</TableCell>
-            <TableCell align="center">Ultimo pago</TableCell>
+            <TableCell align="center">Último Pago</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

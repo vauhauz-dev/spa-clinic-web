@@ -22,11 +22,11 @@ export default function NavBar() {
                 <Grid xs={12} sm={8}>
                     <Toolbar variant="dense">
                         <Container>
-                        <Button onClick={() => router.push('/')} variant="text" sx={{margin: '0 0 0 20px', width: '80px'}}>Clientes</Button>
-                        <Button onClick={() => router.push('/appointments')} variant="text" sx={{margin: '0 0 0 20px', width: '80px'}}>Citas</Button>
-                        <Button onClick={() => router.push('/treatments')} variant="text" sx={{margin: '0 0 0 20px', width: '80px'}}>Tratamientos</Button>
+                        <Button onClick={() => router.push('/')} variant="text" sx={{margin: '0 0 0 20px'}}>Clientes</Button>
+                        <Button onClick={() => router.push('/appointments')} variant="text" sx={{margin: '0 0 0 20px'}}>Citas</Button>
+                        <Button onClick={() => router.push('/treatments')} variant="text" sx={{margin: '0 0 0 20px'}}>Tratamientos</Button>
                         <Badge badgeContent={4} color="error" sx={{height: '25px'}} className="custom-badge">
-                            <Button variant="text" onClick={() => router.push('/alerts')} sx={{margin: '0 0 0 20px', width: '80px'}}>Alertas</Button>
+                            <Button variant="text" onClick={() => router.push('/alerts')} sx={{margin: '0 0 0 20px'}}>Alertas</Button>
                         </Badge>
                         </Container>
                     </Toolbar>

@@ -25,7 +25,7 @@ export default function NavBar() {
                         <Button onClick={() => router.push('/')} variant="text" sx={{margin: '0 0 0 20px'}}>Clientes</Button>
                         <Button onClick={() => router.push('/appointments')} variant="text" sx={{margin: '0 0 0 20px'}}>Citas</Button>
                         <Button onClick={() => router.push('/treatments')} variant="text" sx={{margin: '0 0 0 20px'}}>Tratamientos</Button>
-                        <Badge badgeContent={4} color="error" sx={{height: '25px'}} className="custom-badge">
+                        <Badge badgeContent={4} color="error" className="custom-badge">
                             <Button variant="text" onClick={() => router.push('/alerts')} sx={{margin: '0 0 0 20px'}}>Alertas</Button>
                         </Badge>
                         </Container>

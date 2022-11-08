@@ -32,13 +32,12 @@ function createData(
   }));
 
   const Search = styled('div')(({ theme }) => ({
-    position: 'absolute',
+    position: 'relative',
     borderRadius: theme.shape.borderRadius,
     backgroundColor: alpha(theme.palette.common.white, 0.15),
     '&:hover': {
       backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
-    right: '10px',
     width: '100%',
     [theme.breakpoints.up('sm')]: {
       width: 'auto',
@@ -65,20 +64,24 @@ function createData(
 export default function Customers() {
     return <Box sx={{padding: '15px', backgroundColor: '#e9e9e9', marginTop: '10px'}}>
         <Paper sx={{marginBottom: '10px', padding: '5px', backgroundColor: '#649ecc'}}>
-            <Toolbar variant="dense">
+            <Grid container spacing={2}>
+              <Grid xs={12} sm={4} xl={4}>
                 <Typography variant="h4" sx={{color: 'white'}}>
                     Clientes
                 </Typography>
+              </Grid>
+              <Grid xs={12} sm={8} xl={8}>
                 <Search>
-                    <SearchIconWrapper>
-                        <SearchIcon />
-                    </SearchIconWrapper>
-                    <StyledInputBase
-                    placeholder="Search…"
-                    inputProps={{ 'aria-label': 'search' }}
-                    />
-                </Search>
-            </Toolbar>
+                      <SearchIconWrapper>
+                          <SearchIcon />
+                      </SearchIconWrapper>
+                      <StyledInputBase
+                      placeholder="Search…"
+                      inputProps={{ 'aria-label': 'search' }}
+                      />
+                  </Search>
+              </Grid>
+            </Grid>
         </Paper>
         <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">

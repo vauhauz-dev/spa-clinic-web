@@ -39,10 +39,10 @@ export default function Login() {
   return (
         <div>
           <Grid2 container spacing={2} sx={{height: "100vh", margin: "0"}}>
-            <Grid2 xs={8} sx={{padding: "0"}}>
+            <Grid2 xs={0} sm={8} xl={8} sx={{padding: "0"}}>
               <div className='login-image'></div>
             </Grid2>
-            <Grid2 xs={4} sx={{backgroundColor: "#f9f9f9"}}>
+            <Grid2 xs={12} sm={4} xl={4} sx={{backgroundColor: "#f9f9f9"}}>
               <Container>
               <Box
                 sx={{

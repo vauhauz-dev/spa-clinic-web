@@ -63,10 +63,10 @@ function createData(
 
 export default function Customers() {
     return <Box sx={{padding: '15px', backgroundColor: '#e9e9e9', marginTop: '10px'}}>
-        <Paper sx={{marginBottom: '10px', padding: '5px', backgroundColor: '#649ecc'}}>
-            <Grid container spacing={2}>
+        <Paper sx={{marginBottom: '10px', padding: '10px', backgroundColor: '#649ecc'}}>
+            <Grid container spacing={1}>
               <Grid xs={12} sm={4} xl={4}>
-                <Typography variant="h4" sx={{color: 'white'}}>
+                <Typography variant="h5" sx={{color: 'white'}}>
                     Clientes
                 </Typography>
               </Grid>

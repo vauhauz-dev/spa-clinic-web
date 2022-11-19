@@ -1,0 +1,68 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: #e9e9e9;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: rgb(69, 69, 69);
+    background: rgb(255, 255, 255);
+  }
+}
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+.login-section {
+  background-color: aliceblue;
+}
+
+.login-image {
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/spa-clinic-709c5.appspot.com/o/toallas-image.jpg?alt=media&token=c793adb6-5ed7-4c83-aa5e-38da353ec620');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.iskali-logo {
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/spa-clinic-709c5.appspot.com/o/iskali-logo.jpg?alt=media&token=67b6f5de-e954-4f19-b188-abd2d670e858');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 60px;
+  height: 60px;
+}
+
+#__next {
+  background-color: #e9e9e9;
+}
+
+.custom-badge > span {
+  height: 15px;
+  top: 5px;
+}
+
+.nav-bar-container {
+  color: #649ecc !important;
+}
+
+.nav-bar-container > button, .nav-bar-container > span > button {
+  color: #649ecc !important;
+}

@@ -9,8 +9,6 @@ const mongoConfig = () => {
             try {
                 await client.connect();
                 let collection: Collection<MongoDocument> = client.db('spa-clinic-crm-db').collection(collectionName);
-    
-                console.log("List:");
                 let results = await collection.find()
                 console.log(results)
             } catch(ex) {

@@ -61,7 +61,7 @@ export default function Customers() {
   const [open, setOpen] = React.useState(false);
   const [customer, setCustomer] = useState<any>(null);
 
-  const handleClickOpen = (item) => {
+  const handleClickOpen = (item: any) => {
     setOpen(true);
     setCustomer(item)
   };

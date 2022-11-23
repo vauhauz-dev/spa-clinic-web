@@ -1,24 +1,11 @@
-import { alpha, Box, Chip, InputBase, Paper, styled, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Toolbar, Typography } from "@mui/material";
-import { Container } from "@mui/system";
+import { alpha, AppBar, Box, Button, Chip, Dialog, IconButton, InputBase, Paper, Slide, styled, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Toolbar, Typography } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 import Grid from '@mui/material/Unstable_Grid2';
-
-function createData(
-    name: string,
-    calories: string,
-    fat: string,
-    carbs: string,
-  ) {
-    return { name, calories, fat, carbs };
-  }
-  
-  const rows = [
-    createData('Alejandro Martínez Meza', 'Culiacán', 'COMPLETO', '01/01/2022'),
-    createData('Emmanuel Corral Contreras', 'Tijuana', 'COMPLETO', '01/01/2022'),
-    createData('Dalila Figueroa Ruvalcaba', 'Culiacán', 'PENDIENTE', '01/01/2022'),
-    createData('Jonathan Amaya Bojorquez', 'Tijuana', 'COMPLETO', '01/01/2022'),
-    createData('America Gutierrez López', 'Culiacán', 'PENDIENTE', '01/01/2022'),
-  ];
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { TransitionProps } from "@mui/material/transitions";
+import React from "react";
+import CloseIcon from "@mui/icons-material/Close";
 
   const SearchIconWrapper = styled('div')(({ theme }) => ({
     padding: theme.spacing(0, 2),
@@ -60,8 +47,37 @@ function createData(
     },
   }));
 
+  const Transition = React.forwardRef(function Transition(
+    props: TransitionProps & {
+      children: React.ReactElement;
+    },
+    ref: React.Ref<unknown>,
+  ) {
+    return <Slide direction="up" ref={ref} {...props} />;
+  });
+
 export default function Customers() {
-    return <Box sx={{padding: '25px', backgroundColor: '#e9e9e9', marginTop: '10px'}}>
+  const [customers, setCustomers] = useState([]);
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  useEffect(() => {
+    axios.get('https://iskali-backend.azurewebsites.net/api/customer')
+    .then(res => {
+      setCustomers(res.data);
+    }).catch(err => {
+      console.error('error calling customers service', err)
+    })
+  }, [])
+  
+  return <><Box sx={{padding: '25px', backgroundColor: '#e9e9e9', marginTop: '10px'}}>
         <Paper sx={{marginBottom: '10px', padding: '10px', backgroundColor: '#649ecc'}}>
             <Grid container spacing={1}>
               <Grid xs={12} sm={4} xl={4}>
@@ -93,7 +109,7 @@ export default function Customers() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {customers.map((row: any) => (
             <TableRow
               key={row.name}
               sx={{ '&:last-child td, &:last-child th': { border: 0 }, ":hover": { backgroundColor: 'lightgray'} }}
@@ -102,15 +118,41 @@ export default function Customers() {
               <TableCell component="th" scope="row">
                 {row.name}
               </TableCell>
-              <TableCell align="center">{row.calories}</TableCell>
+              <TableCell align="center">{row.city}</TableCell>
               <TableCell align="center" >
-                <Chip onClick={() =>{}} label={row.fat} sx={{color: row.fat == 'COMPLETO' ? 'green' : 'orange'}} variant="outlined" />
+                <Chip onClick={() =>{}} label={row.paymentStatus} sx={{color: row.paymentStatus == 'COMPLETO' ? 'green' : 'orange'}} variant="outlined" />
               </TableCell>
-              <TableCell align="center">{row.carbs}</TableCell>
+              <TableCell align="center">{row.lastPayment}</TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
     </Box>
+    <Dialog
+        fullScreen
+        open={open}
+        onClose={handleClose}
+        TransitionComponent={Transition}
+      >
+        <AppBar sx={{ position: 'relative' }}>
+          <Toolbar>
+            <IconButton
+              edge="start"
+              color="inherit"
+              onClick={handleClose}
+              aria-label="close"
+            >
+              <CloseIcon />
+            </IconButton>
+            <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
+              Sound
+            </Typography>
+            <Button autoFocus color="inherit" onClick={handleClose}>
+              save
+            </Button>
+          </Toolbar>
+        </AppBar>
+      </Dialog>
+    </>
 }

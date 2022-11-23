@@ -1,4 +1,4 @@
-import { alpha, Box, Chip, Dialog, InputBase, Paper, Slide, styled, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Toolbar, Typography } from "@mui/material";
+import { alpha, AppBar, Box, Button, Chip, Dialog, IconButton, InputBase, Paper, Slide, styled, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Toolbar, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import SearchIcon from '@mui/icons-material/Search';
 import Grid from '@mui/material/Unstable_Grid2';
@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { TransitionProps } from "@mui/material/transitions";
 import React from "react";
+import CloseIcon from "@mui/icons-material/Close";
 
 function createData(
     name: string,
@@ -151,6 +152,25 @@ export default function Customers() {
         open={open}
         onClose={handleClose}
         TransitionComponent={Transition}
-      ></Dialog>
+      >
+        <AppBar sx={{ position: 'relative' }}>
+          <Toolbar>
+            <IconButton
+              edge="start"
+              color="inherit"
+              onClick={handleClose}
+              aria-label="close"
+            >
+              <CloseIcon />
+            </IconButton>
+            <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
+              Sound
+            </Typography>
+            <Button autoFocus color="inherit" onClick={handleClose}>
+              save
+            </Button>
+          </Toolbar>
+        </AppBar>
+      </Dialog>
     </>
 }

@@ -2,6 +2,8 @@ import { alpha, Box, Chip, InputBase, Paper, styled, Table, TableBody, TableCell
 import { Container } from "@mui/system";
 import SearchIcon from '@mui/icons-material/Search';
 import Grid from '@mui/material/Unstable_Grid2';
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function createData(
     name: string,
@@ -61,7 +63,18 @@ function createData(
   }));
 
 export default function Customers() {
-    return <Box sx={{padding: '25px', backgroundColor: '#e9e9e9', marginTop: '10px'}}>
+  const [customers, setCustomers] = useState([]);
+
+  useEffect(() => {
+    axios.get('https://iskali-backend.azurewebsites.net/api/customer')
+    .then(res => {
+      setCustomers(res.data);
+    }).catch(err => {
+      console.error('error calling customers service', err)
+    })
+  }, [])
+  
+  return <Box sx={{padding: '25px', backgroundColor: '#e9e9e9', marginTop: '10px'}}>
         <Paper sx={{marginBottom: '10px', padding: '10px', backgroundColor: '#649ecc'}}>
             <Grid container spacing={1}>
               <Grid xs={12} sm={4} xl={4}>
@@ -93,7 +106,7 @@ export default function Customers() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {customers.map((row: any) => (
             <TableRow
               key={row.name}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -101,11 +114,11 @@ export default function Customers() {
               <TableCell component="th" scope="row">
                 {row.name}
               </TableCell>
-              <TableCell align="center">{row.calories}</TableCell>
+              <TableCell align="center">{row.city}</TableCell>
               <TableCell align="center" >
-                <Chip onClick={() =>{}} label={row.fat} sx={{color: row.fat == 'COMPLETO' ? 'green' : 'orange'}} variant="outlined" />
+                <Chip onClick={() =>{}} label={row.paymentStatus} sx={{color: row.paymentStatus == 'COMPLETO' ? 'green' : 'orange'}} variant="outlined" />
               </TableCell>
-              <TableCell align="center">{row.carbs}</TableCell>
+              <TableCell align="center">{row.lastPayment}</TableCell>
             </TableRow>
           ))}
         </TableBody>

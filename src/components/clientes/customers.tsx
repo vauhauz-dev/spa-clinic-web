@@ -1,5 +1,4 @@
 import { alpha, AppBar, Box, Button, Chip, Dialog, IconButton, InputBase, Paper, Slide, styled, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Toolbar, Typography } from "@mui/material";
-import { Container } from "@mui/system";
 import SearchIcon from '@mui/icons-material/Search';
 import Grid from '@mui/material/Unstable_Grid2';
 import { useEffect, useState } from "react";
@@ -7,23 +6,6 @@ import axios from "axios";
 import { TransitionProps } from "@mui/material/transitions";
 import React from "react";
 import CloseIcon from "@mui/icons-material/Close";
-
-function createData(
-    name: string,
-    calories: string,
-    fat: string,
-    carbs: string,
-  ) {
-    return { name, calories, fat, carbs };
-  }
-  
-  const rows = [
-    createData('Alejandro Martínez Meza', 'Culiacán', 'COMPLETO', '01/01/2022'),
-    createData('Emmanuel Corral Contreras', 'Tijuana', 'COMPLETO', '01/01/2022'),
-    createData('Dalila Figueroa Ruvalcaba', 'Culiacán', 'PENDIENTE', '01/01/2022'),
-    createData('Jonathan Amaya Bojorquez', 'Tijuana', 'COMPLETO', '01/01/2022'),
-    createData('America Gutierrez López', 'Culiacán', 'PENDIENTE', '01/01/2022'),
-  ];
 
   const SearchIconWrapper = styled('div')(({ theme }) => ({
     padding: theme.spacing(0, 2),
@@ -130,7 +112,7 @@ export default function Customers() {
           {customers.map((row: any) => (
             <TableRow
               key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 }, ":hover": { opacity: '0.8'} }}
               onClick={handleClickOpen}
             >
               <TableCell component="th" scope="row">

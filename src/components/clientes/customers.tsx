@@ -59,6 +59,7 @@ import CloseIcon from "@mui/icons-material/Close";
 export default function Customers() {
   const [customers, setCustomers] = useState([]);
   const [open, setOpen] = React.useState(false);
+  const [customer, setCustomer] = useState<any>(null);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -146,7 +147,7 @@ export default function Customers() {
               <CloseIcon />
             </IconButton>
             <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-              Sound
+              Customer: {customer?.name ?? ''}
             </Typography>
             <Button autoFocus color="inherit" onClick={handleClose}>
               save

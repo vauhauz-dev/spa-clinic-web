@@ -61,8 +61,9 @@ export default function Customers() {
   const [open, setOpen] = React.useState(false);
   const [customer, setCustomer] = useState<any>(null);
 
-  const handleClickOpen = () => {
+  const handleClickOpen = (item) => {
     setOpen(true);
+    setCustomer(item)
   };
 
   const handleClose = () => {
@@ -114,7 +115,7 @@ export default function Customers() {
             <TableRow
               key={row.name}
               sx={{ '&:last-child td, &:last-child th': { border: 0 }, ":hover": { backgroundColor: 'lightgray'} }}
-              onClick={handleClickOpen}
+              onClick={() => handleClickOpen(row)}
             >
               <TableCell component="th" scope="row">
                 {row.name}

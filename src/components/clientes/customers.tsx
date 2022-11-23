@@ -1,9 +1,11 @@
-import { alpha, Box, Chip, InputBase, Paper, styled, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Toolbar, Typography } from "@mui/material";
+import { alpha, Box, Chip, Dialog, InputBase, Paper, Slide, styled, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Toolbar, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import SearchIcon from '@mui/icons-material/Search';
 import Grid from '@mui/material/Unstable_Grid2';
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { TransitionProps } from "@mui/material/transitions";
+import React from "react";
 
 function createData(
     name: string,
@@ -62,8 +64,26 @@ function createData(
     },
   }));
 
+  const Transition = React.forwardRef(function Transition(
+    props: TransitionProps & {
+      children: React.ReactElement;
+    },
+    ref: React.Ref<unknown>,
+  ) {
+    return <Slide direction="up" ref={ref} {...props} />;
+  });
+
 export default function Customers() {
   const [customers, setCustomers] = useState([]);
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   useEffect(() => {
     axios.get('https://iskali-backend.azurewebsites.net/api/customer')
@@ -74,7 +94,7 @@ export default function Customers() {
     })
   }, [])
   
-  return <Box sx={{padding: '25px', backgroundColor: '#e9e9e9', marginTop: '10px'}}>
+  return <><Box sx={{padding: '25px', backgroundColor: '#e9e9e9', marginTop: '10px'}}>
         <Paper sx={{marginBottom: '10px', padding: '10px', backgroundColor: '#649ecc'}}>
             <Grid container spacing={1}>
               <Grid xs={12} sm={4} xl={4}>
@@ -110,6 +130,7 @@ export default function Customers() {
             <TableRow
               key={row.name}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              onClick={handleClickOpen}
             >
               <TableCell component="th" scope="row">
                 {row.name}
@@ -125,4 +146,11 @@ export default function Customers() {
       </Table>
     </TableContainer>
     </Box>
+    <Dialog
+        fullScreen
+        open={open}
+        onClose={handleClose}
+        TransitionComponent={Transition}
+      ></Dialog>
+    </>
 }

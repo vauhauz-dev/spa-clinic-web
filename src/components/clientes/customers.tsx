@@ -96,7 +96,8 @@ export default function Customers() {
           {rows.map((row) => (
             <TableRow
               key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 }, ":hover": { backgroundColor: 'lightgray'} }}
+              onClick={handleClickOpen}
             >
               <TableCell component="th" scope="row">
                 {row.name}

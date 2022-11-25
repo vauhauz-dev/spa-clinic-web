@@ -3,11 +3,15 @@ import CloseIcon from "@mui/icons-material/Close";
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+const formatCurrency = require('format-currency')
 
 const drawerWidth = 240;
 
 export default function CustomerDetails(props: any) {
     const {handleClose, customer} = props;
+
+    let opts = { format: '%s%v %c', code: 'USD', symbol: '$' }
+
     return <>
         <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -56,7 +60,7 @@ export default function CustomerDetails(props: any) {
             </ListItem>
             <ListItem key={'3'} disablePadding>
               <ListItemButton>
-                <ListItemText primary={"Monto de adeudo"} secondary={customer.amountOwed} />
+                <ListItemText primary={"Monto de adeudo"} secondary={formatCurrency(customer.amountOwed)} />
               </ListItemButton>
             </ListItem>
             <ListItem key={'4'} disablePadding>

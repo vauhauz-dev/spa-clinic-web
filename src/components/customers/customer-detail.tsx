@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, IconButton, Typography, Button, Box, CssBaseline, Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import { AppBar, Toolbar, IconButton, Typography, Button, Box, CssBaseline, Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Chip } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
@@ -55,7 +55,9 @@ export default function CustomerDetails(props: any) {
             </ListItem>
             <ListItem key={'2'} disablePadding>
               <ListItemButton>
-                <ListItemText primary={"Estatus de pago"} secondary={customer.paymentStatus} />
+                <ListItemText primary={"Estatus de pago"} secondary={<>
+                    <Chip label={customer.paymentStatus} variant="outlined" />
+                </>} />
               </ListItemButton>
             </ListItem>
             <ListItem key={'3'} disablePadding>

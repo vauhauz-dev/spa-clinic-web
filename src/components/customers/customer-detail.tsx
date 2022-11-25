@@ -8,9 +8,14 @@ const drawerWidth = 240;
 export default function CustomerDetails(props: any) {
     const {handleClose, customer} = props;
     return <>
-    <AppBar sx={{ position: 'relative' }}>
-          <Toolbar>
-            <IconButton
+        <Box sx={{ display: 'flex' }}>
+      <CssBaseline />
+      <AppBar
+        position="fixed"
+        sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
+      >
+        <Toolbar>
+        <IconButton
               edge="start"
               color="inherit"
               onClick={handleClose}
@@ -21,21 +26,6 @@ export default function CustomerDetails(props: any) {
             <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
               Customer: {customer?.name ?? ''}
             </Typography>
-            <Button autoFocus color="inherit" onClick={handleClose}>
-              save
-            </Button>
-          </Toolbar>
-        </AppBar>
-        <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <AppBar
-        position="fixed"
-        sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
-      >
-        <Toolbar>
-          <Typography variant="h6" noWrap component="div">
-            Permanent drawer
-          </Typography>
         </Toolbar>
       </AppBar>
       <Drawer

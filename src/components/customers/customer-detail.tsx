@@ -45,21 +45,23 @@ export default function CustomerDetails(props: any) {
         <List>
             <ListItem key={'1'} disablePadding>
               <ListItemButton>
-                <ListItemText primary={customer.city} />
+                <ListItemText primary={"Ciudad"} secondary={customer.city} />
               </ListItemButton>
             </ListItem>
             <ListItem key={'2'} disablePadding>
               <ListItemButton>
-                <ListItemText primary={customer.paymentStatus} />
+                <ListItemText primary={"Estatus de pago"} secondary={customer.paymentStatus} />
               </ListItemButton>
             </ListItem>
             <ListItem key={'3'} disablePadding>
               <ListItemButton>
-                <ListItemText primary={customer.amountOwed} />
+                <ListItemText primary={"Monto de adeudo"} secondary={customer.amountOwed} />
               </ListItemButton>
             </ListItem>
             <ListItem key={'4'} disablePadding>
-                <ListItemText primary={"Last payment"} secondary={customer.lastPayment} />
+              <ListItemButton>
+                <ListItemText primary={"Ultimo pago"} secondary={customer.lastPayment} />
+              </ListItemButton>
             </ListItem>
         </List>
         <Divider />

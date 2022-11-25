@@ -2,6 +2,7 @@ import { AppBar, Toolbar, IconButton, Typography, Button, Box, CssBaseline, Divi
 import CloseIcon from "@mui/icons-material/Close";
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 
 const drawerWidth = 240;
 
@@ -65,6 +66,9 @@ export default function CustomerDetails(props: any) {
             </ListItem>
             <ListItem key={'5'} disablePadding>
               <ListItemButton>
+                <ListItemIcon>
+                  <LocalPhoneIcon />
+                </ListItemIcon>
                 <ListItemText primary={"Telefono"} secondary={customer.phoneNumber} />
               </ListItemButton>
             </ListItem>

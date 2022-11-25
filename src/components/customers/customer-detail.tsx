@@ -70,6 +70,9 @@ export default function CustomerDetails(props: any) {
             </ListItem>
             <ListItem key={'6'} disablePadding>
               <ListItemButton>
+                <ListItemIcon>
+                  <MailIcon />
+                </ListItemIcon>
                 <ListItemText primary={"Correo"} secondary={customer.email} />
               </ListItemButton>
             </ListItem>

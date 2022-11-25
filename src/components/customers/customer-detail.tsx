@@ -61,7 +61,7 @@ export default function CustomerDetails(props: any) {
             </ListItem>
             <ListItem key={'4'} disablePadding>
               <ListItemButton>
-                <ListItemText primary={"Ultimo pago"} secondary={customer.lastPayment} />
+                <ListItemText primary={"Ultimo pago"} secondary={new Date(customer.lastPayment).toLocaleString()} />
               </ListItemButton>
             </ListItem>
             <ListItem key={'5'} disablePadding>

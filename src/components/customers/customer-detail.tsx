@@ -63,6 +63,16 @@ export default function CustomerDetails(props: any) {
                 <ListItemText primary={"Ultimo pago"} secondary={customer.lastPayment} />
               </ListItemButton>
             </ListItem>
+            <ListItem key={'5'} disablePadding>
+              <ListItemButton>
+                <ListItemText primary={"Telefono"} secondary={customer.phoneNumber} />
+              </ListItemButton>
+            </ListItem>
+            <ListItem key={'6'} disablePadding>
+              <ListItemButton>
+                <ListItemText primary={"Correo"} secondary={customer.email} />
+              </ListItemButton>
+            </ListItem>
         </List>
         <Divider />
         <List>

@@ -48,9 +48,22 @@ export default function CustomerDetails(props: any) {
                 <ListItemText primary={customer.city} />
               </ListItemButton>
             </ListItem>
-            <ListItem key={'1'} disablePadding>
+            <ListItem key={'2'} disablePadding>
               <ListItemButton>
                 <ListItemText primary={customer.paymentStatus} />
+              </ListItemButton>
+            </ListItem>
+            <ListItem key={'3'} disablePadding>
+              <ListItemButton>
+                <ListItemText primary={customer.amountOwed} />
+              </ListItemButton>
+            </ListItem>
+            <ListItem key={'4'} disablePadding>
+              <ListItemButton>
+              <Typography variant="overline" display="block" gutterBottom>
+                overline text
+              </Typography>
+                <ListItemText primary={customer.lastPayment} />
               </ListItemButton>
             </ListItem>
         </List>

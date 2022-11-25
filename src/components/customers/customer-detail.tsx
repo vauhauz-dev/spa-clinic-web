@@ -59,10 +59,7 @@ export default function CustomerDetails(props: any) {
               </ListItemButton>
             </ListItem>
             <ListItem key={'4'} disablePadding>
-                <Typography variant="overline" display="block" gutterBottom>
-                    overline text
-                </Typography>
-                <ListItemText primary={customer.lastPayment} />
+                <ListItemText primary={"Last payment"} secondary={customer.lastPayment} />
             </ListItem>
         </List>
         <Divider />

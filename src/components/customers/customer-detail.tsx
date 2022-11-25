@@ -43,16 +43,16 @@ export default function CustomerDetails(props: any) {
         <Toolbar />
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem key={text} disablePadding>
+            <ListItem key={'1'} disablePadding>
               <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemText primary={customer.city} />
               </ListItemButton>
             </ListItem>
-          ))}
+            <ListItem key={'1'} disablePadding>
+              <ListItemButton>
+                <ListItemText primary={customer.paymentStatus} />
+              </ListItemButton>
+            </ListItem>
         </List>
         <Divider />
         <List>

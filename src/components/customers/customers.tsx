@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { TransitionProps } from "@mui/material/transitions";
 import React from "react";
-import CloseIcon from "@mui/icons-material/Close";
+import CustomerDetails from "./customer-detail";
+import CustomersTable from "./customers-table";
 
   const SearchIconWrapper = styled('div')(({ theme }) => ({
     padding: theme.spacing(0, 2),
@@ -57,7 +58,7 @@ import CloseIcon from "@mui/icons-material/Close";
   });
 
 export default function Customers() {
-  const [customers, setCustomers] = useState([]);
+  const [customers, setCustomers] = useState<any[]>([]);
   const [open, setOpen] = React.useState(false);
   const [customer, setCustomer] = useState<any>(null);
 
@@ -101,34 +102,7 @@ export default function Customers() {
             </Grid>
         </Paper>
         <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 500 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell align="center">Nombre</TableCell>
-            <TableCell align="center">Ciudad</TableCell>
-            <TableCell align="center">Estatus</TableCell>
-            <TableCell align="center">Último Pago</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {customers.map((row: any) => (
-            <TableRow
-              key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 }, ":hover": { backgroundColor: 'lightgray'} }}
-              onClick={() => handleClickOpen(row)}
-            >
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="center">{row.city}</TableCell>
-              <TableCell align="center" >
-                <Chip onClick={() =>{}} label={row.paymentStatus} sx={{color: row.paymentStatus == 'COMPLETO' ? 'green' : 'orange'}} variant="outlined" />
-              </TableCell>
-              <TableCell align="center">{row.lastPayment}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+      <CustomersTable customers={customers} handleClick={handleClickOpen}></CustomersTable>
     </TableContainer>
     </Box>
     <Dialog
@@ -137,24 +111,7 @@ export default function Customers() {
         onClose={handleClose}
         TransitionComponent={Transition}
       >
-        <AppBar sx={{ position: 'relative' }}>
-          <Toolbar>
-            <IconButton
-              edge="start"
-              color="inherit"
-              onClick={handleClose}
-              aria-label="close"
-            >
-              <CloseIcon />
-            </IconButton>
-            <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-              Customer: {customer?.name ?? ''}
-            </Typography>
-            <Button autoFocus color="inherit" onClick={handleClose}>
-              save
-            </Button>
-          </Toolbar>
-        </AppBar>
+        <CustomerDetails handleClose={handleClose} customer={customer}></CustomerDetails>
       </Dialog>
     </>
 }

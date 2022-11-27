@@ -146,8 +146,9 @@ export default function CustomerDetails(props: Props) {
           keepMounted: true, // Better open performance on mobile.
         }}
         sx={{
+          zIndex: 9999999,
           display: { xs: 'block', sm: 'none' },
-          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, zIndex: 9999999 },
+          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
         }}
       >
         {drawerContent}

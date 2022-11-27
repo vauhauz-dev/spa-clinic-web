@@ -3,57 +3,150 @@ import CloseIcon from "@mui/icons-material/Close";
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
-const formatCurrency = require('format-currency')
+const formatCurrency = require('format-currency')
 import SendIcon from '@mui/icons-material/Send';
 import StandarFormDialog from "../common/standar-form-dialog";
 import { Fragment, useState } from "react";
+import MenuIcon from '@mui/icons-material/Menu';
 
 const drawerWidth = 240;
 
-export default function CustomerDetails(props: any) {
-    const {handleClose, customer} = props;
-    const [formTitle, setFormTitle] = useState('')
+interface Props {
+  /**
+   * Injected by the documentation to work in an iframe.
+   * You won't need it on your project.
+   */
+  window?: () => Window;
+  handleClose: any;
+  customer: any;
+}
 
-    let opts = { format: '%s%v %c', code: 'USD', symbol: '$' }
+export default function CustomerDetails(props: Props) {
+  const {window} = props;
+  const { handleClose, customer } = props;
+  const [formTitle, setFormTitle] = useState('')
 
-    const [open, setOpen] = useState(false);
+  let opts = { format: '%s%v %c', code: 'USD', symbol: '$' }
 
-    const handleClickOpen = (title: string) => {
-      setOpen(true);
-      setFormTitle(title)
-    };
+  const [open, setOpen] = useState(false);
 
-    const handleFormClose = () => {
-      setOpen(false);
-    };
+  const handleClickOpen = (title: string) => {
+    setOpen(true);
+    setFormTitle(title)
+  };
 
-    return <>
-        <Box sx={{ display: 'flex' }}>
+  const handleFormClose = () => {
+    setOpen(false);
+  };
+
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
+  const drawerContent = (
+    <>
+      <Toolbar />
+      <Divider />
+      <List>
+        <ListItem key={'1'} disablePadding>
+          <ListItemButton>
+            <ListItemText primary={"Ciudad"} secondary={customer.city} />
+          </ListItemButton>
+        </ListItem>
+        <ListItem key={'2'} disablePadding>
+          <ListItemButton>
+            <ListItemText primary={"Estatus de pago"} secondary={<>
+              <Chip label={customer.paymentStatus} variant="outlined" />
+            </>} />
+          </ListItemButton>
+        </ListItem>
+        <ListItem key={'3'} disablePadding>
+          <ListItemButton>
+            <ListItemText primary={"Monto de adeudo"} secondary={formatCurrency(customer.amountOwed)} />
+          </ListItemButton>
+        </ListItem>
+        <ListItem key={'4'} disablePadding>
+          <ListItemButton>
+            <ListItemText primary={"Ultimo pago"} secondary={new Date(customer.lastPayment).toLocaleString()} />
+          </ListItemButton>
+        </ListItem>
+        <ListItem key={'5'} disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <LocalPhoneIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Telefono"} secondary={customer.phoneNumber} />
+          </ListItemButton>
+        </ListItem>
+        <ListItem key={'6'} disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <MailIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Correo"} secondary={customer.email} />
+          </ListItemButton>
+        </ListItem>
+      </List>
+      <Divider />
+    </>
+  )
+
+  const container = window !== undefined ? () => window().document.body : undefined;
+
+  return <>
+    <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar
         position="fixed"
         sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
       >
         <Toolbar>
-        <IconButton
-              edge="start"
-              color="inherit"
-              onClick={handleClose}
-              aria-label="close"
-            >
-              <CloseIcon />
-            </IconButton>
-            <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-              {customer?.name ?? ''}
-            </Typography>
-            <Button variant="contained" size="small" color="info" sx={{margin: '0 0 0 20px'}}  onClick={() => handleClickOpen('Generar Cita')}>Generar Cita</Button>
-            <Button variant="contained" size="small" color="info" sx={{margin: '0 0 0 20px'}}  onClick={() => handleClickOpen('Agregar Tratamiento')}>Agregar Tratamiento</Button>
-            <Button variant="contained" size="small" color="info" sx={{margin: '0 0 0 20px'}}  onClick={() => handleClickOpen('Generar Ticket')}>Generar Ticket</Button>
-            <Button variant="contained" size="small" color="info" sx={{margin: '0 0 0 20px'}} endIcon={<SendIcon />}  onClick={() => handleClickOpen('Enviar Notificacion')}>Enviar Notificacion</Button>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { sm: 'none' } }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
+            {customer?.name ?? ''}
+          </Typography>
+          <Button variant="contained" size="small" color="info" sx={{ margin: '0 0 0 20px' }} onClick={() => handleClickOpen('Generar Cita')}>Generar Cita</Button>
+          <Button variant="contained" size="small" color="info" sx={{ margin: '0 0 0 20px' }} onClick={() => handleClickOpen('Agregar Tratamiento')}>Agregar Tratamiento</Button>
+          <Button variant="contained" size="small" color="info" sx={{ margin: '0 0 0 20px' }} onClick={() => handleClickOpen('Generar Ticket')}>Generar Ticket</Button>
+          <Button variant="contained" size="small" color="info" sx={{ margin: '0 0 0 20px' }} endIcon={<SendIcon />} onClick={() => handleClickOpen('Enviar Notificacion')}>Enviar Notificacion</Button>
+          <IconButton
+            edge="start"
+            color="inherit"
+            onClick={handleClose}
+            aria-label="close"
+          >
+            <CloseIcon />
+          </IconButton>
         </Toolbar>
       </AppBar>
       <Drawer
+        container={container}
+        variant="temporary"
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        ModalProps={{
+          keepMounted: true, // Better open performance on mobile.
+        }}
         sx={{
+          display: { xs: 'block', sm: 'none' },
+          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+        }}
+      >
+        {drawerContent}
+      </Drawer>
+      <Drawer
+        sx={{
+          display: { xs: 'none', sm: 'block' },
           width: drawerWidth,
           flexShrink: 0,
           '& .MuiDrawer-paper': {
@@ -64,56 +157,14 @@ export default function CustomerDetails(props: any) {
         variant="permanent"
         anchor="left"
       >
-        <Toolbar />
-        <Divider />
-        <List>
-            <ListItem key={'1'} disablePadding>
-              <ListItemButton>
-                <ListItemText primary={"Ciudad"} secondary={customer.city} />
-              </ListItemButton>
-            </ListItem>
-            <ListItem key={'2'} disablePadding>
-              <ListItemButton>
-                <ListItemText primary={"Estatus de pago"} secondary={<>
-                    <Chip label={customer.paymentStatus} variant="outlined" />
-                </>} />
-              </ListItemButton>
-            </ListItem>
-            <ListItem key={'3'} disablePadding>
-              <ListItemButton>
-                <ListItemText primary={"Monto de adeudo"} secondary={formatCurrency(customer.amountOwed)} />
-              </ListItemButton>
-            </ListItem>
-            <ListItem key={'4'} disablePadding>
-              <ListItemButton>
-                <ListItemText primary={"Ultimo pago"} secondary={new Date(customer.lastPayment).toLocaleString()} />
-              </ListItemButton>
-            </ListItem>
-            <ListItem key={'5'} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <LocalPhoneIcon />
-                </ListItemIcon>
-                <ListItemText primary={"Telefono"} secondary={customer.phoneNumber} />
-              </ListItemButton>
-            </ListItem>
-            <ListItem key={'6'} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <MailIcon />
-                </ListItemIcon>
-                <ListItemText primary={"Correo"} secondary={customer.email} />
-              </ListItemButton>
-            </ListItem>
-        </List>
-        <Divider />
+        {drawerContent}
       </Drawer>
       <Box
         component="main"
         sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
       >
         <Toolbar />
-        <Card variant="outlined" sx={{marginBottom: '15px'}}>
+        <Card variant="outlined" sx={{ marginBottom: '15px' }}>
           <CardHeader
             avatar={<Skeleton animation="wave" variant="circular" width={40} height={40} />}
             title={<Typography variant="h5" component="div">Listado De Sesiones</Typography>}
@@ -144,5 +195,5 @@ export default function CustomerDetails(props: any) {
       </Box>
     </Box>
     <StandarFormDialog open={open} handleClose={handleFormClose} title={formTitle}></StandarFormDialog>
-        </>
+  </>
 }

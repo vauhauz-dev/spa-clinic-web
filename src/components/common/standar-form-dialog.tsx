@@ -7,7 +7,7 @@ export default function StandarFormDialog(props: any) {
         maxWidth={'sm'} open={props.open} onClose={props.handleClose}>
         <DialogTitle>Subscribe</DialogTitle>
         <DialogContent>
-          <Card>
+          <Card variant="outlined">
           <CardHeader
         avatar={<Skeleton animation="wave" variant="circular" width={40} height={40} />}
         title={<Skeleton

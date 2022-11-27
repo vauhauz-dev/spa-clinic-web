@@ -4,7 +4,7 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 const formatCurrency = require('format-currency')
-import { red } from '@mui/material/colors';
+import SendIcon from '@mui/icons-material/Send';
 
 const drawerWidth = 240;
 
@@ -32,8 +32,10 @@ export default function CustomerDetails(props: any) {
             <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
               Cliente: {customer?.name ?? ''}
             </Typography>
-            <Button variant="contained" size="small" color="info" sx={{margin: '0 0 0 20px'}}>Generar cita</Button>
-            <Button variant="contained" size="small" color="info" sx={{margin: '0 0 0 20px'}}>Agregar tratamiento</Button>
+            <Button variant="contained" size="small" color="info" sx={{margin: '0 0 0 20px'}}>Generar Cita</Button>
+            <Button variant="contained" size="small" color="info" sx={{margin: '0 0 0 20px'}}>Agregar Tratamiento</Button>
+            <Button variant="contained" size="small" color="info" sx={{margin: '0 0 0 20px'}}>Generar Ticket</Button>
+            <Button variant="contained" size="small" color="info" sx={{margin: '0 0 0 20px'}} endIcon={<SendIcon />}>Enviar Notificacion</Button>
         </Toolbar>
       </AppBar>
       <Drawer

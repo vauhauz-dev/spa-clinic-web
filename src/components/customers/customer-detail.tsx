@@ -100,7 +100,10 @@ export default function CustomerDetails(props: Props) {
       <CssBaseline />
       <AppBar
         position="fixed"
-        sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
+        sx={{
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          ml: { sm: `${drawerWidth}px` },
+        }}
       >
         <Toolbar>
           <IconButton
@@ -129,7 +132,12 @@ export default function CustomerDetails(props: Props) {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Drawer
+      <Box
+        component="nav"
+        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+        aria-label="mailbox folders"
+      >
+              <Drawer
         container={container}
         variant="temporary"
         open={mobileOpen}
@@ -159,6 +167,7 @@ export default function CustomerDetails(props: Props) {
       >
         {drawerContent}
       </Drawer>
+      </Box>
       <Box
         component="main"
         sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}

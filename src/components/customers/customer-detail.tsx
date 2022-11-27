@@ -44,7 +44,7 @@ export default function CustomerDetails(props: any) {
               <CloseIcon />
             </IconButton>
             <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-              Cliente: {customer?.name ?? ''}
+              {customer?.name ?? ''}
             </Typography>
             <Button variant="contained" size="small" color="info" sx={{margin: '0 0 0 20px'}}  onClick={() => handleClickOpen('Generar Cita')}>Generar Cita</Button>
             <Button variant="contained" size="small" color="info" sx={{margin: '0 0 0 20px'}}  onClick={() => handleClickOpen('Agregar Tratamiento')}>Agregar Tratamiento</Button>

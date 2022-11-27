@@ -121,7 +121,7 @@ export default function CustomerDetails(props: Props) {
           <Button variant="contained" size="small" color="info" sx={{ margin: '0 0 0 20px' }} onClick={() => handleClickOpen('Generar Cita')}>Generar Cita</Button>
           <Button variant="contained" size="small" color="info" sx={{ margin: '0 0 0 20px' }} onClick={() => handleClickOpen('Agregar Tratamiento')}>Agregar Tratamiento</Button>
           <Button variant="contained" size="small" color="info" sx={{ margin: '0 0 0 20px' }} onClick={() => handleClickOpen('Generar Ticket')}>Generar Ticket</Button>
-          <Button variant="contained" size="small" color="info" sx={{ margin: '0 0 0 20px' }} endIcon={<SendIcon />} onClick={() => handleClickOpen('Enviar Notificacion')}>Enviar Notificacion</Button>
+          <Button variant="contained" size="small" color="info" sx={{ margin: '0 20px 0 20px' }} endIcon={<SendIcon />} onClick={() => handleClickOpen('Enviar Notificacion')}>Enviar Notificacion</Button>
           <IconButton
             edge="start"
             color="inherit"

@@ -29,8 +29,9 @@ export default function CustomerDetails(props: any) {
               <CloseIcon />
             </IconButton>
             <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-              Customer: {customer?.name ?? ''}
+              Cliente: {customer?.name ?? ''}
             </Typography>
+            <Button variant="outlined">Generar cita</Button>
         </Toolbar>
       </AppBar>
       <Drawer

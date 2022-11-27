@@ -25,7 +25,7 @@ export default function CustomersTable(props: { customers: any[], handleClick: (
                         <TableCell align="center" >
                             <Chip onClick={() => { }} label={row.paymentStatus} sx={{ color: row.paymentStatus == 'COMPLETO' ? 'green' : 'orange' }} variant="outlined" />
                         </TableCell>
-                        <TableCell align="center">{row.lastPayment}</TableCell>
+                        <TableCell align="center">{new Date(row.lastPayment).toLocaleString()}</TableCell>
                     </TableRow>
                 ))}
             </TableBody>

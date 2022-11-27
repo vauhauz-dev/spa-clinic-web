@@ -127,6 +127,7 @@ export default function CustomerDetails(props: any) {
             </Fragment>
           </CardContent>
         </Card>
+        <Divider variant="middle"></Divider>
         <Card variant="outlined">
           <CardHeader
             avatar={<Skeleton animation="wave" variant="circular" width={40} height={40} />}

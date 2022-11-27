@@ -5,6 +5,8 @@ import MailIcon from '@mui/icons-material/Mail';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 const formatCurrency = require('format-currency')
 import SendIcon from '@mui/icons-material/Send';
+import StandarFormDialog from "../common/standar-form-dialog";
+import { useState } from "react";
 
 const drawerWidth = 240;
 
@@ -12,6 +14,16 @@ export default function CustomerDetails(props: any) {
     const {handleClose, customer} = props;
 
     let opts = { format: '%s%v %c', code: 'USD', symbol: '$' }
+
+    const [open, setOpen] = useState(false);
+
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+
+    const handleFormClose = () => {
+      setOpen(false);
+    };
 
     return <>
         <Box sx={{ display: 'flex' }}>
@@ -32,10 +44,10 @@ export default function CustomerDetails(props: any) {
             <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
               Cliente: {customer?.name ?? ''}
             </Typography>
-            <Button variant="contained" size="small" color="info" sx={{margin: '0 0 0 20px'}}>Generar Cita</Button>
-            <Button variant="contained" size="small" color="info" sx={{margin: '0 0 0 20px'}}>Agregar Tratamiento</Button>
-            <Button variant="contained" size="small" color="info" sx={{margin: '0 0 0 20px'}}>Generar Ticket</Button>
-            <Button variant="contained" size="small" color="info" sx={{margin: '0 0 0 20px'}} endIcon={<SendIcon />}>Enviar Notificacion</Button>
+            <Button variant="contained" size="small" color="info" sx={{margin: '0 0 0 20px'}}  onClick={handleClickOpen}>Generar Cita</Button>
+            <Button variant="contained" size="small" color="info" sx={{margin: '0 0 0 20px'}}  onClick={handleClickOpen}>Agregar Tratamiento</Button>
+            <Button variant="contained" size="small" color="info" sx={{margin: '0 0 0 20px'}}  onClick={handleClickOpen}>Generar Ticket</Button>
+            <Button variant="contained" size="small" color="info" sx={{margin: '0 0 0 20px'}} endIcon={<SendIcon />}  onClick={handleClickOpen}>Enviar Notificacion</Button>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -128,5 +140,6 @@ export default function CustomerDetails(props: any) {
         </Typography>
       </Box>
     </Box>
+    <StandarFormDialog open={open} handleClose={handleFormClose}></StandarFormDialog>
         </>
 }

@@ -5,7 +5,7 @@ export default function StandarFormDialog(props: any) {
     return <>
         <Dialog fullWidth={true}
         maxWidth={'sm'} open={props.open} onClose={props.handleClose}>
-        <DialogTitle>Subscribe</DialogTitle>
+        <DialogTitle>{props.title}</DialogTitle>
         <DialogContent>
           <Card variant="outlined">
           <CardHeader

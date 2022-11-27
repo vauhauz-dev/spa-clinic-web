@@ -12,13 +12,15 @@ const drawerWidth = 240;
 
 export default function CustomerDetails(props: any) {
     const {handleClose, customer} = props;
+    const [formTitle, setFormTitle] = useState('')
 
     let opts = { format: '%s%v %c', code: 'USD', symbol: '$' }
 
     const [open, setOpen] = useState(false);
 
-    const handleClickOpen = () => {
+    const handleClickOpen = (title: string) => {
       setOpen(true);
+      setFormTitle(title)
     };
 
     const handleFormClose = () => {
@@ -44,10 +46,10 @@ export default function CustomerDetails(props: any) {
             <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
               Cliente: {customer?.name ?? ''}
             </Typography>
-            <Button variant="contained" size="small" color="info" sx={{margin: '0 0 0 20px'}}  onClick={handleClickOpen}>Generar Cita</Button>
-            <Button variant="contained" size="small" color="info" sx={{margin: '0 0 0 20px'}}  onClick={handleClickOpen}>Agregar Tratamiento</Button>
-            <Button variant="contained" size="small" color="info" sx={{margin: '0 0 0 20px'}}  onClick={handleClickOpen}>Generar Ticket</Button>
-            <Button variant="contained" size="small" color="info" sx={{margin: '0 0 0 20px'}} endIcon={<SendIcon />}  onClick={handleClickOpen}>Enviar Notificacion</Button>
+            <Button variant="contained" size="small" color="info" sx={{margin: '0 0 0 20px'}}  onClick={() => handleClickOpen('Generar Cita')}>Generar Cita</Button>
+            <Button variant="contained" size="small" color="info" sx={{margin: '0 0 0 20px'}}  onClick={() => handleClickOpen('Agregar Tratamiento')}>Agregar Tratamiento</Button>
+            <Button variant="contained" size="small" color="info" sx={{margin: '0 0 0 20px'}}  onClick={() => handleClickOpen('Generar Ticket')}>Generar Ticket</Button>
+            <Button variant="contained" size="small" color="info" sx={{margin: '0 0 0 20px'}} endIcon={<SendIcon />}  onClick={() => handleClickOpen('Enviar Notificacion')}>Enviar Notificacion</Button>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -140,6 +142,6 @@ export default function CustomerDetails(props: any) {
         </Typography>
       </Box>
     </Box>
-    <StandarFormDialog open={open} handleClose={handleFormClose}></StandarFormDialog>
+    <StandarFormDialog open={open} handleClose={handleFormClose} title={formTitle}></StandarFormDialog>
         </>
 }

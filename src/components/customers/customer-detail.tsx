@@ -116,7 +116,7 @@ export default function CustomerDetails(props: any) {
         <Card variant="outlined">
           <CardHeader
             avatar={<Skeleton animation="wave" variant="circular" width={40} height={40} />}
-            title={'Listdo de sesiones'}
+            title={<Typography variant="h5" component="div">Listado De Sesiones</Typography>}
             subheader={<Skeleton animation="wave" height={10} width="40%" />}
           />
           <Skeleton sx={{ height: 190 }} animation="wave" variant="rectangular" />
@@ -131,7 +131,7 @@ export default function CustomerDetails(props: any) {
         <Card variant="outlined">
           <CardHeader
             avatar={<Skeleton animation="wave" variant="circular" width={40} height={40} />}
-            title={'Listado de pagos'}
+            title={<Typography variant="h5" component="div">Listado De Pagos</Typography>}
             subheader={<Skeleton animation="wave" height={10} width="40%" />}
           />
           <Skeleton sx={{ height: 190 }} animation="wave" variant="rectangular" />

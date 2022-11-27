@@ -133,19 +133,26 @@ export default function CustomerDetails(props: any) {
             </Fragment>
           </CardContent>
         </Card>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper
-          eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim
-          neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra
-          tellus. Purus sit amet volutpat consequat mauris. Elementum eu facilisis
-          sed odio morbi. Euismod lacinia at quis risus sed vulputate odio. Morbi
-          tincidunt ornare massa eget egestas purus viverra accumsan in. In hendrerit
-          gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem
-          et tortor. Habitant morbi tristique senectus et. Adipiscing elit duis
-          tristique sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-          eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-          posuere sollicitudin aliquam ultrices sagittis orci a.
-        </Typography>
+        <Card variant="outlined">
+          <CardHeader
+            avatar={<Skeleton animation="wave" variant="circular" width={40} height={40} />}
+            title={<Skeleton
+              animation="wave"
+              height={10}
+              width="80%"
+              style={{ marginBottom: 6 }}
+            />
+            }
+            subheader={<Skeleton animation="wave" height={10} width="40%" />}
+          />
+          <Skeleton sx={{ height: 190 }} animation="wave" variant="rectangular" />
+          <CardContent>
+            <Fragment>
+              <Skeleton animation="wave" height={10} style={{ marginBottom: 6 }} />
+              <Skeleton animation="wave" height={10} width="80%" />
+            </Fragment>
+          </CardContent>
+        </Card>
       </Box>
     </Box>
     <StandarFormDialog open={open} handleClose={handleFormClose} title={formTitle}></StandarFormDialog>

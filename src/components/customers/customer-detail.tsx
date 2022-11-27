@@ -31,7 +31,8 @@ export default function CustomerDetails(props: any) {
             <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
               Cliente: {customer?.name ?? ''}
             </Typography>
-            <Button variant="outlined">Generar cita</Button>
+            <Button variant="contained">Generar cita</Button>
+            <Button variant="contained">Agregar tratamiento</Button>
         </Toolbar>
       </AppBar>
       <Drawer

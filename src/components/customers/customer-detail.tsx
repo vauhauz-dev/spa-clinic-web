@@ -113,7 +113,7 @@ export default function CustomerDetails(props: any) {
         sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
       >
         <Toolbar />
-        <Card variant="outlined">
+        <Card variant="outlined" sx={{marginBottom: '15px'}}>
           <CardHeader
             avatar={<Skeleton animation="wave" variant="circular" width={40} height={40} />}
             title={<Typography variant="h5" component="div">Listado De Sesiones</Typography>}
@@ -127,7 +127,6 @@ export default function CustomerDetails(props: any) {
             </Fragment>
           </CardContent>
         </Card>
-        <Divider variant="middle" sx={{marginTop: '5px', marginBottom: '5px'}}></Divider>
         <Card variant="outlined">
           <CardHeader
             avatar={<Skeleton animation="wave" variant="circular" width={40} height={40} />}

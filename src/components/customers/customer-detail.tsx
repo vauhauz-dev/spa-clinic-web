@@ -31,8 +31,8 @@ export default function CustomerDetails(props: any) {
             <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
               Cliente: {customer?.name ?? ''}
             </Typography>
-            <Button variant="contained" color="secondary" sx={{margin: '0 0 0 20px'}}>Generar cita</Button>
-            <Button variant="contained" color="secondary" sx={{margin: '0 0 0 20px'}}>Agregar tratamiento</Button>
+            <Button variant="contained" size="small" color="secondary" sx={{margin: '0 0 0 20px'}}>Generar cita</Button>
+            <Button variant="contained" size="small" color="secondary" sx={{margin: '0 0 0 20px'}}>Agregar tratamiento</Button>
         </Toolbar>
       </AppBar>
       <Drawer

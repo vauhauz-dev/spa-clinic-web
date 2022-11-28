@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, IconButton, Typography, Button, Box, CssBaseline, Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Chip, Card, CardContent, CardHeader, Skeleton } from "@mui/material";
+import { AppBar, Toolbar, IconButton, Typography, Button, Box, CssBaseline, Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Chip, Card, CardContent, CardHeader, Skeleton, Tab, Tabs } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
@@ -19,6 +19,37 @@ interface Props {
   window?: () => Window;
   handleClose: any;
   customer: any;
+}
+
+function a11yProps(index: number) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
+
+function TabPanel(props: {
+  children?: React.ReactNode;
+  index: number;
+  value: number;
+}) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
 }
 
 export default function CustomerDetails(props: Props) {
@@ -43,6 +74,12 @@ export default function CustomerDetails(props: Props) {
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
+  };
+
+  const [value, setValue] = useState(0);
+
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    setValue(newValue);
   };
 
   const drawerContent = (
@@ -174,34 +211,46 @@ export default function CustomerDetails(props: Props) {
         sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
       >
         <Toolbar />
-        <Card variant="outlined" sx={{ marginBottom: '15px' }}>
-          <CardHeader
-            avatar={<Skeleton animation="wave" variant="circular" width={40} height={40} />}
-            title={<Typography variant="h5" component="div">Listado De Sesiones</Typography>}
-            subheader={<Skeleton animation="wave" height={10} width="40%" />}
-          />
-          <Skeleton sx={{ height: 190 }} animation="wave" variant="rectangular" />
-          <CardContent>
-            <Fragment>
-              <Skeleton animation="wave" height={10} style={{ marginBottom: 6 }} />
-              <Skeleton animation="wave" height={10} width="80%" />
-            </Fragment>
-          </CardContent>
-        </Card>
-        <Card variant="outlined">
-          <CardHeader
-            avatar={<Skeleton animation="wave" variant="circular" width={40} height={40} />}
-            title={<Typography variant="h5" component="div">Listado De Pagos</Typography>}
-            subheader={<Skeleton animation="wave" height={10} width="40%" />}
-          />
-          <Skeleton sx={{ height: 190 }} animation="wave" variant="rectangular" />
-          <CardContent>
-            <Fragment>
-              <Skeleton animation="wave" height={10} style={{ marginBottom: 6 }} />
-              <Skeleton animation="wave" height={10} width="80%" />
-            </Fragment>
-          </CardContent>
-        </Card>
+        <Box sx={{ width: '100%' }}>
+          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+            <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+              <Tab label="Listado De Sesiones" {...a11yProps(0)} />
+              <Tab label="Listado De Pagos" {...a11yProps(1)} />
+            </Tabs>
+          </Box>
+          <TabPanel value={value} index={0}>
+            <Card variant="outlined" sx={{ marginBottom: '15px' }}>
+              <CardHeader
+                avatar={<Skeleton animation="wave" variant="circular" width={40} height={40} />}
+                title={<Typography variant="h5" component="div">Listado De Sesiones</Typography>}
+                subheader={<Skeleton animation="wave" height={10} width="40%" />}
+              />
+              <Skeleton sx={{ height: 190 }} animation="wave" variant="rectangular" />
+              <CardContent>
+                <Fragment>
+                  <Skeleton animation="wave" height={10} style={{ marginBottom: 6 }} />
+                  <Skeleton animation="wave" height={10} width="80%" />
+                </Fragment>
+              </CardContent>
+            </Card>
+          </TabPanel>
+          <TabPanel value={value} index={1}>
+            <Card variant="outlined">
+              <CardHeader
+                avatar={<Skeleton animation="wave" variant="circular" width={40} height={40} />}
+                title={<Typography variant="h5" component="div">Listado De Pagos</Typography>}
+                subheader={<Skeleton animation="wave" height={10} width="40%" />}
+              />
+              <Skeleton sx={{ height: 190 }} animation="wave" variant="rectangular" />
+              <CardContent>
+                <Fragment>
+                  <Skeleton animation="wave" height={10} style={{ marginBottom: 6 }} />
+                  <Skeleton animation="wave" height={10} width="80%" />
+                </Fragment>
+              </CardContent>
+            </Card>
+          </TabPanel>
+        </Box>
       </Box>
     </Box>
     <StandarFormDialog open={open} handleClose={handleFormClose} title={formTitle}></StandarFormDialog>

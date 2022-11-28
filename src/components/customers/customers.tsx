@@ -88,7 +88,7 @@ export default function Customers() {
                     Clientes
                 </Typography>
               </Grid>
-              <Grid xs={12} sm={8} xl={8}>
+              <Grid xs={12} sm={6} xl={6}>
                 <Search>
                       <SearchIconWrapper>
                           <SearchIcon />

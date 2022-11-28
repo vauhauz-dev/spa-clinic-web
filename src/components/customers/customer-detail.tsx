@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, IconButton, Typography, Button, Box, CssBaseline, Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Chip, Card, CardContent, CardHeader, Skeleton, Tab, Tabs } from "@mui/material";
+import { AppBar, Toolbar, IconButton, Typography, Button, Box, CssBaseline, Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Chip, Card, CardContent, CardHeader, Skeleton, Tab, Tabs, SpeedDial, SpeedDialAction, SpeedDialIcon } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
@@ -8,8 +8,19 @@ import SendIcon from '@mui/icons-material/Send';
 import StandarFormDialog from "../common/standar-form-dialog";
 import { Fragment, useState } from "react";
 import MenuIcon from '@mui/icons-material/Menu';
+import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
+import SaveIcon from '@mui/icons-material/Save';
+import PrintIcon from '@mui/icons-material/Print';
+import ShareIcon from '@mui/icons-material/Share';
 
 const drawerWidth = 240;
+
+const actions = [
+  { icon: <FileCopyIcon />, name: 'Copy' },
+  { icon: <SaveIcon />, name: 'Save' },
+  { icon: <PrintIcon />, name: 'Print' },
+  { icon: <ShareIcon />, name: 'Share' },
+];
 
 interface Props {
   /**
@@ -81,6 +92,10 @@ export default function CustomerDetails(props: Props) {
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
+
+  const [openSpeedDial, setOpenSpeedDial] = useState(false);
+  const handleOpenDial = () => setOpenSpeedDial(true);
+  const handleCloseDial = () => setOpenSpeedDial(false);
 
   const drawerContent = (
     <>
@@ -254,5 +269,23 @@ export default function CustomerDetails(props: Props) {
       </Box>
     </Box>
     <StandarFormDialog open={open} handleClose={handleFormClose} title={formTitle}></StandarFormDialog>
+    <SpeedDial
+        ariaLabel="SpeedDial tooltip example"
+        sx={{ position: 'absolute', bottom: 16, right: 16 }}
+        icon={<SpeedDialIcon />}
+        onClose={handleCloseDial}
+        onOpen={handleOpenDial}
+        open={open}
+      >
+        {actions.map((action) => (
+          <SpeedDialAction
+            key={action.name}
+            icon={action.icon}
+            tooltipTitle={action.name}
+            tooltipOpen
+            onClick={handleClose}
+          />
+        ))}
+      </SpeedDial>
   </>
 }

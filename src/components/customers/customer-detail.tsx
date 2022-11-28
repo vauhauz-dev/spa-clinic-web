@@ -273,7 +273,7 @@ export default function CustomerDetails(props: Props) {
     <StandarFormDialog open={open} handleClose={handleFormClose} title={formTitle}></StandarFormDialog>
     <SpeedDial
         ariaLabel="SpeedDial tooltip example"
-        sx={{ position: 'absolute', bottom: 16, right: 16 }}
+        sx={{ position: 'absolute', bottom: 16, right: 16, display: { sx: 'block', sm: 'none' } }}
         icon={<SpeedDialIcon />}
         onClose={handleCloseDial}
         onOpen={handleOpenDial}

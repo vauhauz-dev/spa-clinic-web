@@ -275,7 +275,7 @@ export default function CustomerDetails(props: Props) {
         icon={<SpeedDialIcon />}
         onClose={handleCloseDial}
         onOpen={handleOpenDial}
-        open={open}
+        open={openSpeedDial}
       >
         {actions.map((action) => (
           <SpeedDialAction

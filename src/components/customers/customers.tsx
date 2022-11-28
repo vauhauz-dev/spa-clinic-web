@@ -1,4 +1,4 @@
-import { alpha, AppBar, Box, Button, Chip, Dialog, IconButton, InputBase, Paper, Slide, styled, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Toolbar, Typography } from "@mui/material";
+import { alpha, Box, Dialog, InputBase, Paper, Slide, styled, TableContainer, Typography } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 import Grid from '@mui/material/Unstable_Grid2';
 import { useEffect, useState } from "react";
@@ -33,6 +33,9 @@ import CustomersTable from "./customers-table";
   
   const StyledInputBase = styled(InputBase)(({ theme }) => ({
     color: 'inherit',
+    '& .MuiInputBase-root': {
+      width: '100%'
+    },
     '& .MuiInputBase-input': {
       padding: theme.spacing(1, 1, 1, 0),
       // vertical padding + font size from searchIcon
@@ -83,7 +86,7 @@ export default function Customers() {
   return <><Box sx={{padding: '25px', backgroundColor: '#e9e9e9', marginTop: '10px'}}>
         <Paper sx={{marginBottom: '10px', padding: '10px', backgroundColor: '#649ecc'}}>
             <Grid container spacing={1}>
-              <Grid xs={12} sm={4} xl={4}>
+              <Grid xs={12} sm={6} xl={6}>
                 <Typography variant="h5" sx={{color: 'white'}}>
                     Clientes
                 </Typography>

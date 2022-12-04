@@ -49,7 +49,7 @@ export default function NavBar() {
                         </Menu>
                     </Toolbar>
                 </Grid>
-                <Grid xs={12} sm={8}>
+                <Grid xs={12} sm={7}>
                     <Toolbar variant="dense" sx={{display: {xs: 'none', sm: 'flex'}}}>
                         <Button onClick={() => router.push('/')} variant="text" sx={{margin: '0 0 0 20px'}}>Clientes</Button>
                         <Button onClick={() => router.push('/appointments')} variant="text" sx={{margin: '0 0 0 20px'}}>Citas</Button>
@@ -59,7 +59,7 @@ export default function NavBar() {
                         </Badge>
                     </Toolbar>
                 </Grid>
-                <Grid xs={12} sm={1}>
+                <Grid xs={12} sm={2}>
                     <Toolbar variant="dense">
                         <Button onClick={() => router.push('/logout')} variant="contained" size="small" color="info" sx={{ margin: '0 20px 0 20px' }} endIcon={<LogoutIcon />}>Salir</Button>
                     </Toolbar>

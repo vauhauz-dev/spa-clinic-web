@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Grid from '@mui/material/Unstable_Grid2';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from "react";
+import LogoutIcon from '@mui/icons-material/Logout';
 
 export default function NavBar() {
     const router = useRouter()
@@ -18,7 +19,7 @@ export default function NavBar() {
 
     return <AppBar position="static" sx={{backgroundColor: "white", color: "#649ecc", top: 'auto'}}>
             <Grid container >
-                <Grid xs={12} sm={4}>
+                <Grid xs={12} sm={3}>
                     <Toolbar variant="dense">
                         <IconButton sx={{ p: 0 }}>
                             <Avatar alt="Remy Sharp" src={logoImageUrl} />
@@ -57,6 +58,9 @@ export default function NavBar() {
                             <Button variant="text" onClick={() => router.push('/alerts')} sx={{margin: '0 0 0 20px'}}>Alertas</Button>
                         </Badge>
                     </Toolbar>
+                </Grid>
+                <Grid xs={12} sm={1}>
+                    <Button onClick={() => router.push('/logout')} variant="contained" size="small" color="info" sx={{ margin: '0 20px 0 20px' }} endIcon={<LogoutIcon />}>Salir</Button>
                 </Grid>
             </Grid>
         </AppBar>

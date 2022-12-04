@@ -60,7 +60,9 @@ export default function NavBar() {
                     </Toolbar>
                 </Grid>
                 <Grid xs={12} sm={1}>
-                    <Button onClick={() => router.push('/logout')} variant="contained" size="small" color="info" sx={{ margin: '0 20px 0 20px' }} endIcon={<LogoutIcon />}>Salir</Button>
+                    <Toolbar variant="dense">
+                        <Button onClick={() => router.push('/logout')} variant="contained" size="small" color="info" sx={{ margin: '0 20px 0 20px' }} endIcon={<LogoutIcon />}>Salir</Button>
+                    </Toolbar>
                 </Grid>
             </Grid>
         </AppBar>
